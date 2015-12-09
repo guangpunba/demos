@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0; padding:0;}
+        .box{width:800px; margin:0 auto; background: #ededed; overflow: hidden;}
+        li{position:relative;list-style: none; float: left; width:198px; height: 200px; border:1px solid #fff;  }
+        li img.loading{ position: absolute;top:50%; left: 50%; margin:-33px 0 0 -33px }
+        li img.pic{ position:absolute; top:0;left: 0; right: 0; bottom:0; margin:auto; height: auto; width:100%; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <ul>
+        <li><img data-url="images/m1.jpg" src="images/icon1.gif"  class="loading" alt="1"/></li>
+        <li><img data-url="images/m2.jpg" src="images/icon1.gif"  class="loading" alt="2"/></li>
+        <li><img data-url="images/m3.jpg" src="images/icon1.gif"  class="loading" alt="3"/></li>
+        <li><img data-url="images/m4.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m5.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m6.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m7.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m8.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m1.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m2.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m3.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m4.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m5.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m6.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m7.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m8.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m1.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m2.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m3.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m4.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m5.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m6.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m7.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m8.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m1.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m2.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m3.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m4.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m5.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m6.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m7.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+        <li><img data-url="images/m8.jpg" src="images/icon1.gif"  class="loading" alt=""/></li>
+    </ul>
+</div>
+
+<script src="js/jquery.1.10.2.js"></script>
+<script>
+    var oImg = $('.box').find('img');
+    var windowH = $(window).height();
+    //遍历oimg对象，往这个对象中添加属性
+    for(var i=0;i<oImg.length;i++){
+        oImg[i].url = oImg.eq(i).attr('data-url');
+        oImg[i].t = oImg.eq(i).offset().top;
+        oImg[i].flag = false;  //防止浏览器一直加载图片，这样图片加载成功后，滚动浏览器的时候就不会再加载图片了；
+    }
+    console.log(oImg[0].flag);
+    //加载图片
+    function imgLoad(obj){
+        var tt = $(window).scrollTop();
+        if(tt + windowH > obj.t){
+            setTimeout(function(){
+                var imgSrc = obj.url;
+                $(obj).attr('src',imgSrc).removeClass('loading').addClass('pic');
+                obj.flag = true;
+            },1000)
+        }
+    }
+    $(function(){
+        $(window).bind('load scroll',function(){
+            oImg.each(function(){
+                if(!this.flag){
+                    imgLoad(this)
+                }
+            })
+        })
+    })
+</script>
+
+</body>
+</html>

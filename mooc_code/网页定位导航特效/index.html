@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>网页定位导航特效</title>
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<style>
+		*{margin:0; padding: 0;}
+		body{font-size: 12px; line-height: 1.7;}
+		li{list-style:none;}
+		#content{width:800px; margin: 0 auto; padding: 20px;}
+		#content h1{color: #0088bb;}
+		#content .item{padding: 20px; margin-bottom: 20px; border: 1px dotted #0088bb;}
+		#content .item h2{font-size: 16px; margin-bottom: 10px; font-weight: bold; border-bottom: 2px solid #0088bb;}
+		#content .item li {
+			display: inline;
+			margin-right:10px;
+		}
+		#content .item li a img{
+			width:230px;
+			height: 230px;
+		}
+		#menu{
+			position: fixed;
+			top: 100px;
+			left: 50%;
+			margin-left: 400px;
+			width:80px;
+		}
+		#menu ul li a{display: block; margin:5px 0; font-size: 14px; font-weight: bold;;color: #333;width:80px; height: 50px; text-decoration: none; text-align: center;}
+		#menu ul li a:hover,#menu ul li a.active{
+			color: #fff;background: #0088bb;
+		}
+		/*ie6 hack*/
+		*html,*html body{
+			background: url(about:blank);
+			background-attachment: fixed;
+		}
+		*html #menu{position:absolute;
+			top:expression(((e = document.documentElement.scrollTop)?e:document.body.scrollTop)+100+'px');
+		}
+	</style>
+	<script>
+	$(function(){
+		$(window).scroll(function(){
+			var top = $(document).scrollTop(); //获取滚动条高度
+			var menu = $('#menu');
+			var items = $('#content').find('.item');
+			var currentId = "";
+			items.each(function(){
+				var itemTop = $(this).offset().top;
+				if(top > itemTop - 200){
+					currentId = "#" + $(this).attr('id');
+				}else{
+					return false;
+				}
+			})
+			var currentLink = menu.find('.active');
+			if (currentId && currentLink.attr('href') != currentId) {
+				currentLink.removeClass("active");
+				menu.find("[href="+currentId+"]").addClass('active');
+			};
+
+		})
+	})
+	</script>
+</head>
+<body>
+	<div id="menu">
+		<ul>
+			<li><a href="#item1" class="active">1F 男装</a></li>
+			<li><a href="#item2">2F 女装</a></li>
+			<li><a href="#item3">3F 美妆</a></li>
+			<li><a href="#item4">4F 数码</a></li>
+			<li><a href="#item5">5F 母婴</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<h1>购物网</h1>
+		<div id="item1" class="item">
+			<h2>1F 男装</h2>
+			<ul>
+				<li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+			</ul>
+		</div>
+		<div id="item2" class="item">
+			<h2>2F 男装</h2>
+			<ul>
+				<li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+			</ul>
+		</div>
+		<div id="item3" class="item">
+			<h2>3F 男装</h2>
+			<ul>
+				<li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+			</ul>
+		</div>
+		<div id="item4" class="item">
+			<h2>4F 男装</h2>
+			<ul>
+				<li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+			</ul>
+
+		</div>
+		<div id="item5" class="item">
+			<h2>5F 男装</h2>
+			<ul>
+				<li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

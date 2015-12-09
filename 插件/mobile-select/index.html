@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <title>Mobiscroll</title>
+
+    <!-- jQuery Include -->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- Mobiscroll JS and CSS Includes -->
+    
+    <script src="js/mobiscroll.core.js"></script>
+    <script src="js/mobiscroll.frame.js"></script>
+    <script src="js/mobiscroll.scroller.js"></script>
+
+
+    <script src="js/mobiscroll.listbase.js"></script>
+    <script src="js/mobiscroll.treelist.js"></script>
+    <script src="js/i18n/mobiscroll.i18n.zh.js"></script>
+
+    <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.frame.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+    
+    <style type="text/css">
+        /* Demo Page styling, you can disregard this in your implementation */
+        body { padding: 0; margin: 0; font-size: 16px; font-family: arial, verdana, sans-serif; }
+        input, select { width: 100%; padding: .625em; margin: 0 0 .625em 0; border: 1px solid #aaa; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+        .header { padding: .625em; background: #5185a8;}
+        .header h1 { margin: 0; padding: 0; color: #fff; text-align: center; font-size: 1.25em; font-weight: bold; text-shadow: 1px 1px 1px #000; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+        .content { padding: 1em; }
+    </style>
+
+    <script>
+        $(function () {
+
+            function init() {
+                
+               
+                // Treelist demo initialization
+                $('#demo_treelist').mobiscroll().treelist({
+                    theme: 'mobiscroll',     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: 'scroller',       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: 'bottom', // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: 'zh',       // Specify language like: lang: 'pl' or omit setting to use default
+                    labels: ['Region', 'Country', 'City']  // More info about labels: http://docs.mobiscroll.com/2-14-0/list#!opt-labels
+                });
+                
+            }    
+
+            // -------------------------------------------------------------------
+            // Demo page code START, you can disregard this in your implementation
+            init();
+            // Demo page code END
+            // -------------------------------------------------------------------
+        });
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Mobiscroll</h1>
+    </div>
+
+    <div class="content">
+   
+        <!-- Treelist demo markup -->
+        <ul id="demo_treelist">
+                <li>黑龙江
+                    <ul>
+                        <li>哈尔滨
+                            
+                        </li>
+                        <li>大庆
+                          
+                        </li>
+                        <li>佳木斯
+                         
+                        </li>
+                    </ul>
+                </li>
+                <li>吉林
+                    <ul>
+                        <li>长春
+                            
+                        </li>
+                        <li>松原
+                          
+                        </li>
+                        <li>长白山
+                          
+                        </li>
+                        <li>吉林
+                          
+                        </li>
+                    </ul>
+                </li>
+                <li>辽宁
+                    <ul>
+                        <li>大连
+                           
+                        </li>
+                        <li>沈阳
+                         
+                        </li>
+                    </ul>
+                </li>
+            </ul>   
+    
+    </div>
+</body>
+</html>

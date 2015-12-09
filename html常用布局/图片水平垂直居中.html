@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        p{text-align: center;}
+        .box{  width:500px; height: 200px; border:1px solid #FF0000; margin:0 auto; overflow: hidden;}
+        .box1{position: relative;}
+        .box1 img{position:absolute; top: 0;left: 0;right: 0;bottom:0;width:auto;height: auto;margin: auto;}
+        .box2{display: table;}
+        .box2 .box_content{display: table-cell; text-align: center; vertical-align: middle;}
+        .box3{position: relative;}
+        .box3 .box_content{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); }
+        .box4{text-align: center;}
+        .box4 span{height: 100%;display: inline-block;vertical-align: middle;}
+        .box4 img{vertical-align: middle;}
+        .box5{display: flex; justify-content: center; align-items: center;}
+        .container{padding:10px;background: #ff0000;position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);}
+    </style>
+</head>
+<body>
+<div class="container">
+    未知宽高的div水平垂直居中
+</div>
+<p>1</p>
+<div class="box box1"><img src="images/m3.jpg"> </div>
+<p>2</p>
+<div class="box box2">
+    <div class="box_content">
+        <img src="images/m3.jpg">
+    </div>
+</div>
+<p>3</p>
+<div class="box box3">
+    <div class="box_content">
+        <img src="images/m3.jpg">
+    </div>
+</div>
+<p>4</p>
+<div class="box box4">
+    <img src="images/m3.jpg"><span></span>
+</div>
+<p>5</p>
+<div class="box box5">
+    <img src="images/m3.jpg">
+</div>
+</body>
+</html>

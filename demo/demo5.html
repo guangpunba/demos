@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+
+/*    (function(){
+        drag = function(){
+            var a = 123;
+            console.log(a);
+        }
+
+    })();*/
+    function Fn4(){
+        //this.name = 'kobe';
+        this.age = 28;
+        this.love = ['体育','篮球'];
+    }
+    Fn4.prototype.name = '999';
+    Fn4.prototype.aa = ['体育','篮球'];
+    function Fn5(){
+        this.name1 = 'it';
+    }
+    Fn5.prototype = new Fn4();
+
+    Fn5.prototype.name = '998';
+
+    Fn5.prototype.aa = ['体育','足球'];
+
+    var fn5 = new Fn5();
+    /*for(var i in fn5){
+        if(fn5.hasOwnProperty(i)){
+            console.log(i)
+        }
+    }*/
+
+    console.log(fn5.hasOwnProperty('name'))
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>图片动画</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		*{margin：0; padding:0;}
+		.main{width:400px; height: 200px; margin:50px auto; overflow: hidden; position: relative;}
+		.imgBox img{
+			width:100%; 
+			-webkit-transition: all 1s ease 0s;
+			transition: all 1s ease 0s;
+		}
+		.imgBox img:hover{
+			-webkit-transform: scale(1.2);
+			transform:scale(1.2);
+		}
+		.main.imgBox1{
+			width:295px;
+            border:2px solid #333;
+		}
+		.imgBox1 img{
+            width:305px;
+			position: absolute;
+			top: 0;
+			left:0;
+			-webkit-transition: all .3s ease 0s;
+			transition: all .3s ease 0s;
+		}
+		.imgBox1 img:hover{
+			left:-10px;
+		}
+		a{transition:all 0.3s ease-out 0s;color:#000; text-decoration: none;} 
+
+		a:hover{margin-left:5px; text-decoration:none;}
+		i{  background: url(./images/m2.png) no-repeat; width:128px; height:128px; display: block;}
+
+
+		i:hover{         background-position: 0 -30px;       transition: all .4s ease-out;}
+
+	</style>
+</head>
+<body>
+	<div class="main imgBox">
+		<img src="./images/m3.jpg" alt="">
+	</div>
+
+	<div class="main imgBox1 on">
+		<img src="./images/m4.jpg" alt="">
+	</div>
+	<div class="main aBox">
+		<a href="#">email me</a>
+	</div>
+	<div class="main iBox">
+		<i></i>
+	</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+
+    //测试通过
+    /MicroMessenger/.test(navigator.userAgent) ? function(){
+        alert('微信');
+    }() : function(){
+        alert("其他浏览器");
+        //插入需要在非微信浏览器中执行的代码
+    }();
+    //测试没通过
+    /*WeixinJSBridge ? function(){
+     alert('微信');
+     //需要在微信浏览器中执行的代码
+     }() : function(){
+     alert("其他浏览器");
+     //插入需要在非微信浏览器中执行的代码
+     }();*/
+
+</script>
+
+
+<script type="text/javascript">
+//手机端判断各个平台浏览器及操作系统平台
+function checkPlatform(){
+	if(/android/i.test(navigator.userAgent)){
+		document.write("This is Android'browser.");//这是Android平台下浏览器
+	}
+	if(/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)){
+		document.write("This is iOS'browser.");//这是iOS平台下浏览器
+	}
+	if(/Linux/i.test(navigator.userAgent)){
+		document.write("This is Linux'browser.");//这是Linux平台下浏览器
+	}
+	if(/Linux/i.test(navigator.platform)){
+		document.write("This is Linux operating system.");//这是Linux操作系统平台
+	}
+	if(/MicroMessenger/i.test(navigator.userAgent)){
+		document.write("This is MicroMessenger'browser.");//这是微信平台下浏览器
+	}
+}
+  $(document).ready(function(){
+    alert(navigator.platform);
+    checkPlatform();
+  });
+</script>
+</body>
+</html>

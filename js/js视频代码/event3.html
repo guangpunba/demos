@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+    <style>
+        .red{width:100px; height: 100px; background: #ff0000;}
+        .blue{width:100px; height: 100px; background: #00b3ee;}
+    </style>
+</head>
+<body>
+
+<div class="red" id="red">
+    <div class="red">
+
+    </div>
+</div>
+<div class="red">
+
+</div><div class="red">
+
+</div>
+<script>
+    var oDiv = document.getElementsByClassName('red')[0];
+    oDiv.onclick = toBlue;
+
+    function toBlue(e){
+        var that = e.target;
+        that.className = 'blue';
+    }
+
+
+
+
+
+
+    //ie7,8下获取className兼容方法
+    function getByClass(clsName,parent){
+        var oParent=parent?document.getElementById(parent):document,
+                eles=[],
+                elements=oParent.getElementsByTagName('*');
+
+        for(var i=0,l=elements.length;i<l;i++){
+            if(elements[i].className==clsName){
+                eles.push(elements[i]);
+            }
+        }
+        return eles;
+    }
+
+</script>
+</body>
+</html>

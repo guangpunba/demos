@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<style type="text/css">
+		*{margin:0; padding:0;}
+		.title{ width:200px; height: 30px; margin:0 auto; text-align: center; padding-top: 50px; color: #ff0000; font-size: 20px; font-weight: bold;}
+		.btns{ width: 200px; margin:0 auto; text-align:center; padding-top: 20px;}
+		.btns span{ width:80px; height: 30px; display:inline-block; background: #ff0000; text-align: center; line-height: 30px; color: #ffffff;}
+	</style>
+</head>
+<body>
+	<div id="title" class="title">
+		开始抽奖
+	</div>
+	<div class="btns">
+		<span id="start">开始</span>
+		<span id="stop">结束</span>
+	</div>
+	<script>
+	var data = ['手机','相机','电脑','三星','数码相机','笔记本电脑'],
+	 	timer = null;
+	var title = document.getElementById('title');
+	window.onload = function(){
+		var play = document.getElementById('start');
+		var stop = document.getElementById('stop');
+		var flag = 0;
+		play.onclick = playfun;
+		stop.onclick = stopfun;
+
+		//键盘事件
+		document.onkeyup  = function(event){
+			event = event || window.event;
+			console.log(event.keyCode);
+			if(event.keyCode == 13){ 
+				if(flag == 0){
+					playfun();
+					flag = 1;
+				}else{
+					stopfun();
+					flag = 0;
+				}
+			}
+		}
+		
+	}
+	function playfun(){
+		
+		var play = document.getElementById('start');
+		clearInterval(timer);
+
+		timer = setInterval(function(){
+			var random = Math.floor(Math.random()*data.length);
+			title.innerHTML = data[random];
+		},100)
+
+		play.style.background = '#999';
+
+	}
+        
+    function stopfun(){
+    	clearInterval(timer);
+    	var play = document.getElementById('start');
+    	play.style.background = '#f00';
+    }
+        
+	</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="GMS: CountDown " />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta charset="utf-8">
+    <title>GMS: CountDown </title>
+    <style>
+        *{margin:0;padding:0;}
+        body{padding-bottom: 10px;}
+		.header{width:100%;height: 36px;line-height: 36px;background: #ccc;text-align: center;}
+		.content{overflow: hidden;}
+		li{height: 40px;line-height: 40px; background: #fff;border-bottom: 1px solid #666; text-align: center;}
+		.loading{height: 30px; line-height:30px; text-align: center; padding:10px 0;}
+		.loading img{vertical-align: middle;}
+    </style>
+</head>
+<body>
+<div class="header">头部</div>
+<div class="content">
+	<ol>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>qwe</li>
+	</ol>
+
+</div>
+	
+<script src="./js/zepto.min.js"></script>
+<script src="./js/zepto_touch.js"></script>
+<script>
+   $(function(){
+	   var t,docH,move;
+	   var lis = $('.content').find('li');
+	   
+	   var winH = $(window).height();
+	   var l = lis.length;
+	   
+	   lis.each(function(i){
+			   var n = i+1;
+			   $(this).html(n)
+			   
+	   })
+       $('.content').on({
+           touchmove : function(){
+              var lastLI = $('.content').find('li').last();
+		      t = $(window).scrollTop();
+		      docH = $(document).height();
+               
+           },
+           touchend:function(){
+               
+               if(winH + t > docH-5){
+                   if($('.loading').length > 0){
+                       return ;
+                   }else{
+
+                       $('.content').append('<div class="loading"><img src="./img/loading.gif">数据加载中</div>');
+                       $('body').css('padding-bottom',0);
+                       setTimeout(function(){
+                           $('.loading').remove();
+                           var str ='';
+
+                           for(var i=l+1; i<=l+5; i++){
+                               str += '<li>'+i+'</li>';
+                           }
+                           l = l+5;
+                           $('body').css('padding-bottom','10px');
+                           $('.content').find('ol').append(str);
+                        },2000)
+                   }
+               }
+               }
+       })
+	   /*$('.content').on('touchmove',function(e){
+		    var lastLI = $('.content').find('li').last();
+		    t = $(window).scrollTop();
+		    docH = $(document).height();
+            if(winH + t > docH-80){
+			   if($('.loading').length > 0){
+				   return ;
+			   }else{
+                  
+				   $('.content').append('<div class="loading"><img src="./img/loading.gif">数据加载中</div>');
+                   $('body').css('padding-bottom',0);
+				   setTimeout(function(){
+					   $('.loading').remove();
+					   var str ='';
+					   
+					   for(var i=l+1; i<=l+5; i++){
+						   str += '<li>'+i+'</li>';
+					   }
+					   l = l+5;
+                       $('body').css('padding-bottom','100px');
+					   $('.content').find('ol').append(str);
+				    },2000)
+			   }
+		   }
+       })
+	  */
+	   
+	   
+	   
+	   
+   })
+</script>
+</body>
+</html>

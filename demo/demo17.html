@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        html,body{height: 100%;}
+        .box{width:100%;height: 200%;}
+        .box img{width:100%; height: 100%;}
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <img src="images/m7.jpg" alt=""/>
+</div>
+<script>
+    //测试可用
+    /*window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+    function hengshuping() {
+        if (window.orientation == 90 || window.orientation == -90) {
+            alert('横屏')
+        } else {
+            alert('竖屏')
+        }
+    }*/
+    var box = document.getElementsByClassName('box')[0];
+    box.onclick =  function(){
+
+        window.scrollTo(0,100);
+    }
+
+
+</script>
+</body>
+</html>

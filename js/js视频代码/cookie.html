@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+
+<input type="button" value="按钮" id="btn"/>
+
+
+
+<script>
+//设置cookie
+function setCookie(name,value,expires,path,domain,secure){
+    var cookieName = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+    if(expires instanceof Date){
+        cookieName +=';expires=' + expires;
+    }
+    if(path){
+        cookieName +=';path=' + path;
+    }
+    if(domain){
+        cookieName +=';domain=' + domain;
+    }
+    if(secure){
+        cookieName +=';secure=' + secure;
+    }
+    document.cookie = cookieName;
+}
+
+//过期时间
+function setCookieDate(day){ //传递一个天数
+    var date = null;
+    if(typeof day == 'number' && day > 0){
+        date = new Date();
+        date.setDate(date.getDate() + day);
+    }else{
+        throw new Error('错误');
+    }
+    return date;
+
+}
+setCookie('user','管理员',setCookieDate(7));
+
+</script>
+</body>
+</html>

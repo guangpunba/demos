@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    var obj = {
+        name : "kobe",
+        age  : 35
+    }
+    var person = {};
+    Object.defineProperty(person,'name',{
+        writable : true, //false不可修改值，true 可以修改值；
+        configurable : false,  //false 表示不能出对象中删除，true 可以删除；
+        value : 'www'        //给对象赋值
+    })
+
+    //delete obj.name;    //删除对象中的值
+    console.log(person.name);
+</script>
+</body>
+</html>

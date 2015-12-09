@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content=“IE=edge″/>
+    <meta name="keywords" content="这里写关键字（用‘ ， ’隔开）"/>
+    <meta name="description" content="这里写网站描述（用' 、'隔开）"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>validate</title>
+    <link rel="shortcut icon" href="./images/favicon.ico">
+
+    <script src="js/jquery.1.10.2.js"></script>
+    <script src="js/jquery.validate.js"></script>  
+    <script src="js/validation.messages.js"></script>  
+    <!--[if lt IE 9]>
+    <script src="./js/html5shiv.min.js"></script>
+    <![endif]-->
+   
+</head>
+
+<body>
+<form action="" method="" id="signupForm">
+    <p><label for="">用户名：</label><input type="text" name="username"></p>
+    <p><label for="">手机号：</label><input type="text" name="phone"></p>
+    <p><label for="">多选</label><input type="checkbox" name="check" value="1"><input type="checkbox" name="check" value="2"></p>
+    <select name="multiple">
+        <option selected="selected" value="1">Multiple</option>
+        <option>Multiple2</option>
+        <option>Multiple3</option>
+    </select>
+    <input type="submit" value="提交" id='btn'>
+    <!--<a href="javascript:void(0)" id="btn">提交</a>-->
+</form>
+
+<script>
+$(function(){
+    /*var obj = {a:1,b:2,c:3};
+    var k = $.param(obj);
+    console.log(k);    //输出a=1&b=2&c=3*/
+    $("#signupForm").validate({
+        rules:{
+            username:{
+                required: true,
+                minlength: 5
+            },
+            phone:{
+                required:true,
+                minlength:11
+            }
+            
+        },
+        /*submitHandler:function(form){
+            alert("submitted");   
+            form.submit();
+        }    */
+        submitHandler: function(form){ 
+            var data = $("#signupForm").serialize();
+            console.log(data)
+            //alert("ajaxSubmit");  
+            $(form).ajaxSubmit();     
+        }
+        /*submitHandler: function(form){ 
+            var data = '';
+            $.post('modal/index.html',data,function(){
+                alert('ajax')
+            })  
+        }  */
+    })
+    /*$('#btn').click(function(){
+        if($("#signupForm").valid()){
+            console.log(123);
+            return false;
+        }else{
+            console.log('error')
+        }
+    })*/
+    
+   
+    //console.log(validator.)
+})
+
+
+</script>
+</body>
+</html>

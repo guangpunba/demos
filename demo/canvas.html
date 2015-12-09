@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="draw">
+    你的浏览器不知道canvas标签
+</canvas>
+
+
+<script>
+    var draw = document.getElementById('draw');
+    draw.width = 500;
+    draw.height = 500;
+    draw.style.background = '#cccccc';
+    //判断浏览器是否支持canvas标签
+    if(draw.getContext){
+        var c = draw.getContext('2d');
+        /*c.fillStyle = '#ff0000';
+        c.fillRect(100,100,150,150);
+
+        c.fillStyle = 'rgba(0,0,255,0.5)';
+        c.fillRect(150,150,150,150);
+        c.clearRect(160,160,50,50);*/
+
+        c.beginPath();
+        //外圆
+        c.arc(250,250,100,0,2*Math.PI,false);
+        c.stroke();
+        //内圆
+        c.beginPath();
+        c.arc(250,250,95,0,2*Math.PI,false);
+        c.moveTo(250,250);
+        c.lineTo(250,170);
+
+        c.moveTo(250,250);
+        c.lineTo(230,230);
+        c.stroke();
+
+    }
+</script>
+</body>
+</html>

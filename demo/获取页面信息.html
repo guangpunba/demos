@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding:0;}
+    </style>
+</head>
+<body>
+
+
+<div style='width:1000px;height:2000px; margin:10px auto; background:#f0f0f0;' id='box'></div>
+<div id="content" style='margin-top:100px;padding-top:100px;border:1px solid #333;'>
+<div id="main">23</div>
+</div>
+<div class="text" style="height:1000px">
+    
+</div>
+<script>
+    window.onload = function(){
+        var obj = document.getElementById('box');
+        var main = document.getElementById('main');
+        var winW =  document.documentElement.clientWidth || document.body.clientWidth;
+        var winH =  document.documentElement.clientHeight || document.body.clientHeight;
+        var docW = document.body.offsetHeight ;
+        
+        window.onscroll = function(){
+            var scrollT = document.body.scrollTop;
+            var t = main.offsetTop;
+            if(scrollT > t -300){
+                console.log(scrollT)
+                
+            }
+        
+        }
+        
+        //console.log('窗口宽度：'+winW);
+        //console.log('窗口高度：'+winH);
+        //console.log('文档高度：'+docW);
+    }
+</script>
+</body>
+</html>
+

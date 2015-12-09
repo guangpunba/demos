@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title></title>
+    <style>
+        *{margin:0; padding:0;}
+        .box {box-sizing:border-box; padding:0 10px; overflow: hidden;}
+        .box li{width:45%; height: 200px; background: #FF9900; list-style: none;margin:10px 0; opacity: 0;
+            -webkit-transition: all .28s ease-in .1s;
+            transition: all .28s ease-in .1s;
+        }
+        .box li:nth-child(2n+1){float: left; margin-left: 0%; }
+        .box li:nth-child(2n){float: right; margin-right: 0%;}
+        .box li.active{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="box">
+    <ul>
+        <li data-target="false">1</li>
+        <li data-target="false">2</li>
+        <li data-target="false">3</li>
+        <li data-target="false">4</li>
+        <li data-target="false">5</li>
+        <li data-target="false">6</li>
+        <li data-target="false">7</li>
+        <li data-target="false">8</li>
+        <li data-target="false">9</li>
+        <li data-target="false">1</li>
+        <li data-target="false">2</li>
+        <li data-target="false">3</li>
+        <li data-target="false">4</li>
+        <li data-target="false">5</li>
+        <li data-target="false">6</li>
+        <li data-target="false">7</li>
+        <li data-target="false">8</li>
+        <li data-target="false">9</li>
+    </ul>
+
+</div>
+
+<script src="js/jquery.1.10.2.js"></script>
+<script>
+    $(function(){
+
+        var lis = $('.box').find('li');
+
+        function aa(obj){
+            var windowH = $(window).height();
+            var scrollH = $(document).scrollTop();
+            var h = $(obj).offset().top;
+            var a = $(obj).attr('data-target');
+            if(windowH + scrollH > h && a == 'false'){
+
+                $(obj).addClass('active').attr('data-target','true');
+
+            }
+        }
+        $(window).load(function(){
+
+            lis.each(function(){
+                if($(this).attr('data-target') == 'false'){
+                    aa(this)
+                }
+            })
+
+
+        })
+        $(window).scroll(function(){
+
+            lis.each(function(){
+                if($(this).attr('data-target') == 'false'){
+                    aa(this)
+                }
+            })
+
+
+        })
+
+
+
+
+    })
+</script>
+</body>
+</html>

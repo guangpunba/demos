@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0; padding:0;}
+
+        body,html{height: 100%;}
+
+        .bg{
+            position: relative;
+            width:100%;
+            min-height:150%;
+            background-attachment: fixed;
+            bckground-size: cover;
+
+        }
+        .content{
+            width:100%;
+            height:100%;
+            position:absolute;
+            background-repeat:no-repeat;
+            background-position:50% -80px;
+
+            background-attachment:fixed;
+        }
+        #bg1{background-image: url("http://annweb.sinaapp.com/img/bg1.jpg");}
+        #bg2{background-image: url("http://annweb.sinaapp.com/img/bg2.jpg");}
+        #a1{
+            background-image:url(http://annweb.sinaapp.com/img/brand_s1.png);
+            z-index:40;
+        }
+        #a2{
+            background-image:url(http://annweb.sinaapp.com/img/brand_s2.png);
+            z-index:10;
+        }
+    </style>
+</head>
+<body>
+<div id="bg1" class="bg" data-speed="0.5">1
+    <div id="a1" class="content" data-speed="-0.1"></div>
+    <div id="a2" class="content" data-speed="0.7"></div>
+</div>
+<div id="bg2" class="bg" data-speed="0.1">2</div>
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('div[class="content"]').each(function(){
+            var $bgobj = $(this);
+            $(window).scroll(function(){
+                var yPos = -80-($(window).scrollTop()* $bgobj.data('speed'));
+                var coords =  '50% '+ yPos + 'px';
+
+                $bgobj.css({ backgroundPosition: coords });
+            });
+        });//背景里的内容
+        $('div[class="bg"]').each(function(){
+            var $bgobj = $(this);
+            $(window).scroll(function(){
+                var yPos = -($(window).scrollTop()* $bgobj.data('speed'));
+                var coords =  '0 '+ yPos + 'px';
+                console.log($(window).scrollTop());
+                console.log($bgobj.attr('id')+" "+yPos);
+                $bgobj.css({ backgroundPosition: coords });
+            });
+        });//背景
+    });
+</script>
+</body>
+</html>

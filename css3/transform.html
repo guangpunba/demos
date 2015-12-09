@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title>transform</title>
+    <style>
+        *{margin:0;padding:0;}
+        a{text-decoration:none; color: #fff;font-size: 20px;}
+        .box{width:1000px; margin:200px auto;}
+        ul{list-style: none;  width:1000px; padding:10px; background: #0071d1; display: table-cell;text-align: center;}
+        li{ margin:0 20px;  display: inline-block;}
+        .tooltip{
+            position:relative;
+        }
+        .tooltip span{
+            width:100px;
+            height: 100px;
+            background: #FF9900;
+            border-radius: 50%;
+            position:absolute;
+            left: 50%;
+            bottom: 100%;
+            margin-left:-50px;
+            opacity:1;
+        }
+        .tooltip1 span{
+           
+            transition:all 0.5s;
+            transform:translate3d(0,20px,0);
+        }
+        .tooltip2 span{
+           
+            transition:all 0.5s;
+            transform:translate3d(0,-20px,0) scale3d(0,0,0);
+            transform-origin: 50% 100%;
+        }
+         .tooltip3 span{
+           
+            transition:all 0.5s;
+            transform:translate3d(0,-20px,0) rotate3d(1,0,1,45deg);
+            transform-origin: 50% 100%;
+        }
+        .box a:hover span{
+            opacity: 1;
+            transform:translate3d(0,-50px,0) scale3d(1,1,1);
+        }
+        .main{
+            width:100px;
+            height: 100px;
+            background: #ddd;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+            margin:0 auto;
+            position:relative;
+        }
+        .main .a1,.main .a2{
+            width:100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top:0;
+            border-radius: 50%;
+            border:1px solid #ddd;
+            transition:all 0.5s ease 0.1s;
+            transform:scale3d(1,1,1);
+            opacity: 0;
+        }
+        .main:hover .a1{
+            opacity: 1;
+            transform:scale3d(1.5,1.5,1.5);
+        }
+        .main:hover .a2{
+            opacity: 1;
+            transform:scale3d(1.2,1.2,1.2);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><a href="#" class="tooltip tooltip1">translate<span></span></a></li>
+        <li><a href="#" class="tooltip tooltip2">scale<span></span></a></li>
+        <li><a href="#" class="tooltip tooltip3">rotate<span></span></a></li>
+        <li><a href="#">skew</a></li>
+        <li><a href="#">origin</a></li>
+    </ul>
+</div>
+<div class='main active'>
+    按钮
+    <div class="a1"></div>
+    <div class="a2"></div>
+</div>
+<script>
+    window.onload = function(){
+        var btn = document.getElementsByClassName('tooltip')[0];
+       
+        btn.onclick = function(){
+		
+            btn.className += ' active';
+        }
+    }
+    
+    
+</script>
+</body>
+</html>

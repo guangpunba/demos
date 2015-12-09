@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content=“IE=edge″/>
+    <meta name="keywords" content="这里写关键字（用‘ ， ’隔开）"/>
+    <meta name="description" content="这里写网站描述（用' 、'隔开）"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />            <!--iphone中删除默认的苹果工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /> <!--iphone中safari顶端的状态条的样式-->    
+    <meta name="format-detection" content="telephone=no" />               <!--不能调用电话-->
+    <meta name="screen-orientation" content="portrait">                   <!-- uc强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">                       <!-- QQ强制竖屏 -->
+    <title>页面名称</title>
+    <style>
+        *{margin:0;padding:0;}
+        .container{padding:10px;background: #ff0000;position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);}
+        .box{
+            float:left;
+            position:relative;
+            left:50%;
+           
+        }
+
+        .box ul{
+            list-style:none;
+            margin:0;
+            padding:0;
+
+            position:relative;
+            left:-50%;
+        }
+        .box li{float:left;display:inline;margin-right:8px;}
+        .box1{
+            text-align:center;
+            margin:100px 0;
+        }
+        .box1 ul{
+            list-style:none;
+            margin:0;
+            padding:0;
+            display:inline;
+        }
+        .box1 li{
+            margin-right:8px;
+            display:inline;
+        }
+    </style>
+
+    
+</head>
+
+<body>
+<div class="container">
+    未知宽高的div水平垂直居中
+</div>
+<div class="box">
+    <ul>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+    </ul>
+</div>
+<div class="box1">
+    <ul>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+    </ul>
+</div>
+</body>
+</html>

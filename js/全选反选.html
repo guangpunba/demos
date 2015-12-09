@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="checkbox" name="" id="allcheck"/>全选<input type="checkbox" id="unallcheck"/>反选
+<br/>
+<input type="checkbox" name="check"/>
+<input type="checkbox" name="check"/>
+<input type="checkbox" name="check"/>
+<script src="js/jquery.1.10.2.js"></script>
+<script>
+    $(function(){
+        var all = $('#allcheck');
+        var unall = $('#unallcheck');
+        var checkboxs = $('input[name=check]');
+        checkboxs.bind('click',function(){
+            all.prop('checked', $('input[name=check]:checked').length == checkboxs.length);
+
+        })
+        all.bind('click',function(){
+            checkboxs.prop('checked', this.checked);
+        })
+        unall.bind('click',function(){
+            for(var i=0;i<checkboxs.length;i++){
+                all.prop('checked',false);
+                checkboxs[i].checked = !checkboxs[i].checked;
+            }
+        })
+        console.log(checkboxs.length)
+    })
+</script>
+</body>
+</html>

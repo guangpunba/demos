@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas</title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{margin:0;padding:0;}
+	</style>
+</head>
+<body>
+<canvas id="canvas" style="display:block;margin:0 auto; border:1px solid #333;"></canvas>
+<input type="range" id="scale-range" min="0.5" max="3.0" step="0.01" value="1.0" style="display:block;margin:20px auto;width:800px"/>
+
+<script>
+    var cvs = document.getElementById('canvas');
+    var context = cvs.getContext('2d');
+    var slider = document.getElementById('scale-range');
+    var image = new Image();
+    window.onload = function(){
+        cvs.width = 1152;
+        cvs.height = 768;
+        var scale = slider.value
+        image.src = 'images/img-lg.jpg';
+        image.onload = function(){
+           context.drawImage(image,0,0,1152,768)
+          
+        }
+    }
+   
+</script>
+</body>
+</html>

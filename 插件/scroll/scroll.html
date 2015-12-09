@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content=“IE=edge″/>
+    <meta name="keywords" content="这里写关键字（用‘ ， ’隔开）"/>
+    <meta name="description" content="这里写网站描述（用' 、'隔开）"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>validate</title>
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <script src="js/jquery.1.10.2.js"></script>
+    <script src="js/jquery.colorbox-min.js"></script> 
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script> 
+    <style>
+        .main{
+            width:200px;
+            height: 300px;
+            border:1px solid #333;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="./js/html5shiv.min.js"></script>
+    <![endif]-->
+   
+</head>
+
+<body>
+<div class="main">
+    <p>123213123123132123123</p>
+    <p>123213123123132123123</p>
+
+</div>
+<script>
+
+(function($){
+			$(window).load(function(){
+				
+				
+				
+				$(".main").mCustomScrollbar({
+					live:true,
+					theme:"inset-dark"
+				});
+				
+			});
+		})(jQuery);
+</script>
+</body>
+</html>

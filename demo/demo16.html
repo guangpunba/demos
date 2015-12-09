@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        html,body{
+            height: 100%;
+        }
+        .bg{
+            background-position:center center;
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            width:100%;
+            height: 150%;
+        }
+        .box1{
+            background-image:url("images/puckered.png"); overflow: hidden;
+        }
+        .box2{
+            background-image:url("images/slide2.jpg");
+        }
+        .box3{
+            background-image:url("images/slide4.jpg");
+        }
+        .box4{
+            background-image:url("images/slide3.jpg");
+        }
+        .box5{
+            background-image:url("images/puckered.png");
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+
+
+<div class="bg box1"></div>
+<div class="bg box2"></div>
+<div class="bg box3"></div>
+<div class="bg box4"></div>
+<div class="bg box5"></div>
+
+<script>
+    var d = new Date();
+    console.log(d.setYear('2990'))
+    var n = '33,4,88,1,-8';
+    var arr = n.split(',');
+    var obj= new Object(n);
+    console.log(obj);
+    console.log(Math.max.apply(null,arr))
+</script>
+</body>
+</html>

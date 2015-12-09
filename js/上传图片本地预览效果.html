@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>上传图片本地预览</title>
+<script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.9.1.js"></script>
+</head>
+
+<body>
+<div id="picture_box"><img id="img"  width="200" height="200" alt="我是图片"></div>
+<form id="file_box">
+  <input type="hidden" name="pic_path" id="pic_path">
+  <input type="file" id="file" name="file">
+</form>
+<script>
+(function($){
+	$.fn.extend({
+		uploadFile:function(pic_box_id){
+			var files;
+			var ireg=/image\/.*/g;
+			if(this.get(0).files){
+				var files=this.get(0).files;
+				if(files[0].type.match(ireg)===null){//判断图片类型
+						alert('你选择的文件不是图片，请重新选择图片');
+						return false;
+					}
+				if(window.FileReader){
+					var reader=new FileReader();//创建读取文件实例
+					reader.onload=function(e){//当读取文件的时候执行函数
+						var url=e.target.result;//获取经过转换的图片链接
+						$('#'+pic_box_id).find('img').attr('src',url);//把图片加载到页面上预览
+						}
+					reader.readAsDataURL(files[0]);//读取文件的data url
+					}
+			}else{   
+				this.select();
+				if (/msie 9/gi.test(navigator.userAgent.toLowerCase())){
+					$('#'+pic_box_id).focus(); 
+					}
+				var width=$('#'+pic_box_id).children().width();
+				var height=$('#'+pic_box_id).children().height();
+				this.blur();//不加上这个去除焦点的话下边的document.selection.createRange().text在ie里会拒绝访问
+				var ieimgurl=document.selection.createRange().text;//获取图片的url
+				$('#'+pic_box_id).attr('style','width:'+width+'px; height:'+height+'px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod="scale",src="'+ieimgurl+'");');//对于ie只能加载滤镜效果实现图片预览
+				$('#'+pic_box_id).children().hide();
+				}
+			}
+		})
+	})(jQuery)
+$('#file').change(function(){
+	$(this).uploadFile('picture_box');
+	})
+</script>
+</body>
+</html>

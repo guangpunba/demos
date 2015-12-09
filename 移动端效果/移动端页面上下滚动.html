@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>     
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"> 
+    <style>
+    /**
+ *
+ * (C)2010-2030 
+ * Website : ……/
+ * File    :index.css
+ * Date    : 2014-09-3 09:30:28
+ * Author  : wangzhihui
+ *
+ */
+
+/*重置代码*/
+html,body,h1,h2,h3,h4,h5,h6,div,ul,ol,li,dl,dt,dd,iframe,textarea,input,button,p,strong,b,a,span,del,pre,table,tr,th,td{margin:0; padding:0; -webkit-text-size-adjust:none;}
+h1,h2,h3,h4,h5,h6,em,del{font-style:normal; font-weight:normal; font-size:100%; -webkit-text-size-adjust:none;}
+ul,li{list-style:none;}
+a{text-decoration:none;}
+.cl{overflow:hidden;}
+.hide{display:none;}
+img{border:none;}
+.fl{float:left;}
+.fr{float:right;}
+body{font-size:16px; font-family:Microsoft yahei, Arial, Helvetica, sans-serif; background:#fff;overflow:hidden;}
+
+.slide_div{background:#ccc;position:relative;}
+.slide_ul{position:absolute;overflow:Hidden;width:100%;}
+.slide_ul li{height:200px;}
+.slide_ul li:first-child{background:#f00;}
+.slide_ul li:nth-child(2){background:#0f0;}
+.slide_ul li:nth-child(3){background:#00f;}
+.slide_ul li:nth-child(4){background:#ff0;}
+.slide_ul li:nth-child(5){background:#f0f;}
+
+    </style> 
+  </head>
+  <body>
+  		<div class="slide_div">
+        	<ul class="slide_ul">
+            	<li><img src="../demo/images/m1.jpg" alt="" /></li>
+                <li><img src="../demo/images/m2.jpg" alt="" /></li>
+                <li><img src="../demo/images/m3.jpg" alt="" /></li>
+                <li><img src="../demo/images/m4.jpg" alt="" /></li>
+                <li><img src="../demo/images/m2.jpg" alt="" /></li>
+            </ul>
+        </div>
+  </body>
+  
+ <script>
+ 	/*
+;(function($){// 可以去掉开头的 ; （分号），国外的开发人员编写的插件时的一种习惯 
+     $.fn.pluginName = function() {     
+           // Our plugin implementation code goes here.     
+     };
+})(jQuery);    //传入一个jQuery的参数(其是就是匿名函数的参数$的值为jQuery)，是因为该方法是对jQuery库的扩展，那么在该方法体内就可以调用jQuery库中的函数；若不传入，则无法调用jQuery库 
+*/
+
+;
+(function($){
+		$.fn.mySlide=function(options){
+			var defaults={
+				distance:0
+				}	
+			/*jQuery.extend(object); 为扩展jQuery类本身.为类添加新的方法。*/
+			var options=$.extend(defaults,options);
+			this.each(function(){
+				var winH=$(window).height();
+				var index=0;
+				var slide_ul=$(this).find("ul");
+				var slide_li=$(this).find("li");
+				var len=slide_li.length;
+				var startY,sY,moveY,endY,total;
+				slide_li.css({"height":winH});
+				slide_ul.css({"height":len*winH});
+				
+				slide_ul.on({
+					touchstart:function(e){
+						startY=e.originalEvent.targetTouches[0].pageY;	
+						sY=slide_ul.offset().top;	
+						console.log(e);
+
+						},
+					touchmove:function(e){
+						e.preventDefault();						
+						moveY=e.originalEvent.targetTouches[0].pageY;
+						total=sY+moveY-startY;
+                        //total = 0 + -
+
+						slide_ul.css({
+							"top":total
+							})
+						},
+					touchend:function(e){
+						endY = e.originalEvent.changedTouches[0].pageY;
+						console.log(endY);
+						if(startY>endY){									
+							if(Math.abs(startY-endY)>options.distance){
+									/*index = index >= (len - 1) ? 0 : ++index;*/									
+									index=index<len-1?++index:index;
+
+									$(this).animate({top: -index * winH + 'px'});										
+								}else{
+									$(this).animate({top: -index * winH + 'px'});
+									}						 									
+								
+																								
+							}else{	
+								if(Math.abs(startY-endY)>options.distance){
+										/*index = index <= 0 ? (len - 1) : --index;*/										
+										index=index>0?--index:index;
+										$(this).animate({top: -index * winH + 'px'});
+									}else{
+										$(this).animate({top: -index * winH + 'px'});
+										}	
+														
+								}
+						}
+				
+				});
+			})			
+			}
+	
+	/*结束闭包*/})(jQuery)
+ </script>
+ <script type="text/javascript">
+  	$(".slide_div").mySlide({
+		distance:'50'
+		})
+  </script>
+</html>

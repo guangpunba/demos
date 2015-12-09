@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>变形与动画</title>
+    <link href="./css/layout.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<input type="button" value="设置单选下拉框选中"/>
+<select id="city1">
+    <option value="1">1111</option>
+    <option value="2">2222</option>
+    <option value="3">选择三号</option>
+    <option value="4">4444</option>
+    <option value="5">5555</option>
+</select>
+<select id="single">
+    <option>选择1号</option>
+    <option>选择2号</option>
+    <option>选择3号</option>
+</select>
+<script src="js/jquery.js"></script>
+<script>
+    $(function(){
+
+
+        $('#city option').click(function(){
+            //$('#cityclone').append(this.options[this.selectedIndex])
+            $(this).clone().appendTo('#cityclone');
+        })
+       //$('#city option:eq(0)').remove();  //删除option；
+       $('#city').change(function(){
+          /*if(this.options[2].selected){
+              console.log('ok');
+          }else{
+              console.log('no');
+          }*/
+          //this.selectedIndex = 4   //select对象赋值索引给option
+       })
+        //$('#city option:eq(4)').attr('selected',true);
+
+       //遍历option对象选中和指定的值相等的项
+       /*$('#city option').each(function(){
+            if($(this).val() == 2){
+              $(this).attr('selected',true);
+            }
+       })*/
+       $('#city').change(function(){
+           //console.log($(this).val());     //输出option的值
+           //console.log(this.selectedIndex);  //输出select中option的索引；
+           //console.log($(this).find('option').eq(this.selectedIndex).text()) //输出选中的文字
+            //console.log($('#city option:selected').text());
+       })
+    })
+</script>
+</body>
+</html>

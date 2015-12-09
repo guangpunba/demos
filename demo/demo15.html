@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=320,maximum-scale=1.3,user-scalable=no">
+    <title>rem</title>
+    <style>
+        *{margin:0;padding:0}
+        html{font-size: 100%;} /* 16px */
+        body{font-size: 2rem;} /* 32px */
+        .box{
+            width:10rem; /* 160px */
+            height: 10rem;
+            border:1px solid #333;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    字体
+</div>
+<script src="js/jquery.js"></script>
+<script>
+    window.onlod = function(){
+        console.log(Math.floor(Math.random()*10+1));
+
+    }
+    $(function(){
+        console.log($('.box').css('width'))
+    })
+</script>
+</body>
+</html>

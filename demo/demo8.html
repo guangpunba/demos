@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title></title>
+    <style>
+        .divImg{position:absolute;top:0;left:0;width:500px; height: 1500px; border:1px solid #333; display: table-cell; vertical-align: middle;}
+        .divImg img{
+            width:100%;
+        }
+    </style>
+    <script src="./js/jquery.js"></script>
+</head>
+
+<body>
+
+<div class="divImg">
+    <img id ='aa' src="http://p0.qhimg.com/dmsmty/70_70_100/t01136470842acaa64c.jpg" alt=""/>
+</div>
+<div id="main" class="aa bb">123</div>
+<script>
+    var str = '123ssrs';
+    console.log(str.charAt(2));
+    var img = $('#aa').height();
+    console.log(img);
+    var o = $('#main');
+    var c = o.attr('class');
+
+
+    if(c.indexOf('bb3') >= 0){
+        console.log('存在');
+    }else{
+        console.log('不存在');
+    }
+</script>
+</body>
+</html>

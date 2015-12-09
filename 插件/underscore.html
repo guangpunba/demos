@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content=“IE=edge″/>
+    <meta name="keywords" content="这里写关键字（用‘ ， ’隔开）"/>
+    <meta name="description" content="这里写网站描述（用' 、'隔开）"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />            <!--iphone中删除默认的苹果工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /> <!--iphone中safari顶端的状态条的样式-->    
+    <meta name="format-detection" content="telephone=no" />               <!--不能调用电话-->
+    <meta name="screen-orientation" content="portrait">                   <!-- uc强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">                       <!-- QQ强制竖屏 -->
+    <title>flex</title>
+  
+
+    
+</head>
+
+<body>
+
+
+<div class="container">
+    <div class="flex flex1"></div>
+    <div class="flex flex2"></div>
+    <div class="flex flex3"></div>
+    <div class="flex flex4"></div>
+</div>
+<script src="js/underscore-min.js"></script>
+<script>
+    var arr = [1,2,4];
+    var newarr = _.map(arr, function(num){ 
+        return num * 3; 
+    });
+    console.log(newarr)
+</script>
+</body>
+</html>

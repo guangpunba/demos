@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+    <title>CSS3激光加载条</title>
+    <meta charset="utf-8"/>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <style type="text/css">
+    /*简单清除浏览器样式*/
+      *{
+          margin:0px;
+          padding:0px;
+      }
+      /*设置进度条高度、背景色*/
+      #process{
+          height: 2px;
+          background: #1abc9c;
+          transform:opacity 300ms linear;
+        -webkit-animation:myProcess 3s;/*动画绑定*/
+        animation:myProcess 3s;
+      }
+      /*采用CSS3创动画规则*/
+      @-webkit-keyframes myProcess{
+          0%{width: 0px;}
+          100%{width:100%;}
+      }
+      @keyframes myProcess{
+          0%{width: 0px;}
+          100%{width:100%;}
+      }
+      .over{
+          opacity: 0;
+      }
+      /**
+            Internet Explorer 10、Firefox 以及 Opera 支持 @keyframes 规则和 animation 属性。
+            Chrome 和 Safari 需要前缀 -webkit-。
+            注意：Internet Explorer 9，以及更早的版本，不支持 @keyframe 规则或 animation 属性
+            资料来源：http://www.w3cschool.cc/
+      **/
+    </style>
+        <script type='text/javascript'>
+                 $({ timer: 0 }).animate({timer: 100}, //从0-100
+                     {
+                         duration: 3000,//速度设定，
+                         //三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)
+                         step: function() {//阶梯函数
+                         var percentage = Math.round(this.timer); //对timer每一刻的值进行取整操做
+                         $('#process').css('width', percentage + "%");
+                         if (percentage == 100) {
+                             $("#process").addClass("over"); //当加载完毕时，隐藏Process
+                             }
+                         }
+                 });
+        </script>
+</head>
+<body>
+    <div id="process"> </div>
+</body>
+</html>

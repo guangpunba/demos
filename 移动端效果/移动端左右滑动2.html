@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>自己写的轮播</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <style>
+        p,ul,li,body{
+            margin: 0;
+            padding:0;
+        }
+        img{
+            border:none;
+            width: 100%;
+            height: 100%;
+        }
+        ul,li{
+            list-style:none;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+            /*min-width: 320px;
+            max-width: 400px;*/
+            width: 100%;
+            margin: 0 auto;
+            background: #ccc;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            overflow: hidden;
+        }
+        .celar{
+            clear: both;
+        }
+
+        .slide{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .main{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .main li{
+            width: 100%;
+            height: 100%;
+            float: left;
+        }
+        .audio_icon{
+            width: 30px;
+            height: 30px;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: url(../images/audio.png) no-repeat;
+            background-size: 30px 60px;
+        }
+        .audio_icon.off{
+            background: url(../images/audio.png) no-repeat 0 -30px;
+            background-size: 30px 60px;
+        }
+        .audio_icon{
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+        }
+        .main li:first-child{background:#f00;}
+        .main li:nth-child(2){background:#0f0;}
+        .main li:nth-child(3){background:#00f;}
+        .main li:nth-child(4){background:#ff0;}
+    </style>
+</head>
+<body>
+<div class="slide" id="slide">
+    <ul class="main" id="main">
+        <li>
+
+        </li>
+        <li>
+
+        </li>
+        <li>
+
+        </li>
+        <li>
+
+        </li>
+    </ul>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script type="text/javascript">
+    /*
+     * 第一次尝试编写jquery插件，基本逻辑js代码已编写完成，只剩封装
+     *author:wangzhihui
+     *time:2014.12.12
+     */
+    ;
+    (function($) {
+        $.fn.mySlide = function(options) {
+            var defaults = {
+                distance: 0 //滑动切换触发距离
+            }
+            var options = $.extend(defaults, options);//用一个或多个其他对象来扩展一个对象，返回被扩展的对象。
+            this.each(function() {
+
+                var mainWidth = $(window).width(); //屏幕宽度
+
+                var liLength = $(this).find("li").length; //子图的数目
+
+                var ulWidth = mainWidth * liLength; //主图的总宽度
+
+                var num = 1;
+                var start, move, s, m, end;
+                var main = $(this).children("ul");
+                main.css("width", ulWidth + "px");
+
+                $(this).find("li").css("width", mainWidth + "px");
+                //console.log($(this).find("li").width());
+                main.on({//on绑定事件
+                    touchstart: function(e) {
+                        start = e.originalEvent.targetTouches[0].pageX;	//获取点击点的X坐标
+                        //console.log("start="+start);
+                        s = main.offset().left;//相对于当前窗口的偏移量
+                        //console.log("s="+s);
+
+                    },
+                    touchmove: function(e) {
+                        e.preventDefault();
+                        move = e.originalEvent.targetTouches[0].pageX;//移动过程中的X坐标的改变
+                        //console.log("move="+move);
+                        m = s + move - start;
+                        //console.log("m="+m);
+                        main.css("left", m);
+                    },
+                    touchend: function(e) {
+                        end = e.originalEvent.changedTouches[0].pageX;
+                        //console.log('end='+end);
+                        if (start > end) { //往上滑动
+                            //  main.find("li").eq(num + 1).find("img").attr('src', main.find("li").eq(num + 1).find("img").attr("data-src"));//动态加载图片
+                            if (Math.abs(start - end) > options.distance) { //判断滑动距离就进入下一张
+                                if (num < liLength) {
+                                    main.animate({
+                                        left: -num * mainWidth + 'px'
+                                    });
+                                    num++;
+
+                                } else {
+                                    num=1;
+                                    main.animate({
+                                        left: -(num - 1) * mainWidth + 'px'
+                                    });
+
+                                }
+                            } else {
+
+                                main.animate({
+                                    left: -(num - 1) * mainWidth + 'px'
+                                });
+
+                            }
+                        } else { //往下滑动
+                            if (Math.abs(start - end) > options.distance) {
+                                if (num > 1) {
+                                    num--;
+                                    main.animate({
+                                        left: -(num - 1) * mainWidth + 'px'
+                                    });
+                                    console.log(num);
+                                } else {
+                                    num=liLength;
+                                    main.animate({
+                                        left: -(num - 1) * mainWidth + 'px'
+                                    });
+                                }
+                            } else {
+                                main.animate({
+                                    left: -(num - 1) * mainWidth + 'px'
+                                });
+                            }
+                        }
+                    }
+                })
+            })
+        }
+    })(jQuery)
+
+</script>
+<script type="text/javascript">
+    $(".slide").mySlide({
+        distance:'50'
+
+    })
+</script>

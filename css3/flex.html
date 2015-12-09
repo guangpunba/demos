@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content=“IE=edge″/>
+    <meta name="keywords" content="这里写关键字（用‘ ， ’隔开）"/>
+    <meta name="description" content="这里写网站描述（用' 、'隔开）"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />            <!--iphone中删除默认的苹果工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="red" /> <!--iphone中safari顶端的状态条的样式-->    
+    <meta name="format-detection" content="telephone=no" />               <!--不能调用电话-->
+    <meta name="screen-orientation" content="portrait">                   <!-- uc强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">                       <!-- QQ强制竖屏 -->
+    <title>flex</title>
+    <style>
+        *{margin:0;padding:0;}
+        .container{display: -webkit-box;display:box; border:1px solid #333;}
+        .container .flex{height: 100px;background:#f00; margin:0 10px;}
+        .container .flex1{-webkit-box-flex:1;}
+        .container .flex2{-webkit-box-flex:2;}
+        .container .flex3{-webkit-box-flex:1;}
+        .container .flex4{-webkit-box-flex:2;}
+    </style>
+    <style>
+        .container1{display: -webkit-flex; border:1px solid #333; margin: 10px 0;}
+        .container1 .flex{height: 100px;background:#f00; margin:0 10px;}
+        .container1 .flex1{-webkit-flex:1;}
+        .container1 .flex2{-webkit-flex:2;}
+        .container1 .flex3{-webkit-flex:1;}
+        .container1 .flex4{-webkit-flex:2;}
+    </style>
+    <style>
+        .container2{display: -webkit-flex; justify-content: center; align-items: center; border:1px solid #333; margin: 10px 0;}
+        .container2 .flex{height: 100px;background:#f00; margin:0 10px;}
+        .container2 .flex1{width:100px;}
+        .container2 .flex2{-webkit-flex:1; }
+        .container2 .flex3{-webkit-flex:1;}
+        .container2 .flex4{-webkit-flex:2;}
+    </style>
+    <style>
+        .container3{display: -webkit-flex; justify-content:center; align-items: center; border:1px solid #333; margin: 10px auto; width:200px; height: 200px;}
+        .container3 .flex{width:100px; height: 100px; background: #f4f4f4;}
+    </style>
+    <!-- 高度按比例划分 -->
+    <style>
+        html,body{height: 100%;}
+        .container4{display: -webkit-flex; border:1px solid #333; flex-direction:column; height: 100%;}
+        .container4 .flex{background:#f90;  }
+        .container4 .flex1{-webkit-flex:1; }
+        .container4 .flex2{-webkit-flex:1;}
+        .container4 .flex3{-webkit-flex:1;}
+        .container4 .flex4{-webkit-flex:1;}
+    </style>
+    <style>
+       
+        .container5{display: -webkit-flex; flex-wrap: wrap;  width:320px; }
+        .container5 .flex{background:#f90;  }
+        .container5 .flex1{width:200px; background:green;}
+        .container5 .flex2{width:200px; background: red;}
+        .container5 .flex3{width:100px; background: orange;}
+        .container5 .flex4{width:200px; background: blue;}
+    </style>
+    <style>
+       
+        .container6{display: -webkit-flex; height: 200px;  }
+        .container6 .flex{background:#f90;  }
+        .container6 .flex1{width:50px; background:green; align-self:center;}
+        .container6 .flex2{width:50px; background: red; align-self: flex-start;}
+        .container6 .flex3{width:50px; background: red; align-self: flex-end;}
+    </style>
+    <!-- 旧flexbox布局 兼容安卓4.4以下和ios 新flex兼容安卓4.4以上和ios-->
+    <style>
+       
+        .container7{display: -webkit-box; display: box; height: 200px; width:300px;  border:1px solid #333; -webkit-box-pack:center; -webkit-box-align:center;}
+        .container7 .flex{background:#f90; width:100px; height: 100px;}
+ 
+    </style>
+    
+    
+</head>
+
+<body>
+
+<div class="container5">
+    <div class="flex flex1">1</div>
+    <div class="flex flex2">2</div>
+    <div class="flex flex3">3</div>
+    <div class="flex flex4">4</div>
+</div>
+<!--<div class="container">
+    <div class="flex flex1"></div>
+    <div class="flex flex2"></div>
+    <div class="flex flex3"></div>
+    <div class="flex flex4"></div>
+</div>
+<div class="container1">
+    <div class="flex flex1"></div>
+    <div class="flex flex2"></div>
+    <div class="flex flex3"></div>
+    <div class="flex flex4"></div>
+</div>
+<div class="container2">
+    <div class="flex flex1">1</div>
+    <div class="flex flex2">2</div>
+    <div class="flex flex3"></div>
+    <div class="flex flex4"></div>
+</div>
+<div class="container3">
+    <div class="flex flex1">1</div>
+    
+</div>
+<div class="container4">
+    <div class="flex flex1">1</div>
+    <div class="flex flex2">2</div>
+    <div class="flex flex3">3</div>
+    <div class="flex flex4">4</div>
+</div>
+<div class="container5">
+    <div class="flex flex1">1</div>
+    <div class="flex flex2">2</div>
+    <div class="flex flex3">3</div>
+    <div class="flex flex4">4</div>
+</div>
+<div class="container6">
+    <div class="flex flex1">1</div>标题
+    <div class="flex flex2">2</div>
+    <div class="flex flex3">3</div>
+</div>
+<div class="container7">
+    <div class="flex flex1">1</div>
+ 
+   
+</div>-->
+</body>
+</html>

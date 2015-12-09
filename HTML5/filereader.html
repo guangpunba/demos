@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML5--本地存储SessionStorage</title>
+    <script type="text/javascript">
+        
+       
+        
+        //读取图片路径
+        function readAsDataURL(){
+             var file = document.getElementById('file').files[0];
+             var reader = new FileReader();
+             reader.readAsDataURL(file);
+             reader.onload = function(){
+                 var resultimg = document.getElementById('result');
+                 resultimg.innerHTML = '<img src="'+this.result+'">';
+                 console.log(this.result)
+             }
+        
+        }
+        //读取txt文本
+        function readAsText(){
+             var file = document.getElementById('file').files[0];
+             var reader = new FileReader();
+             reader.readAsText(file);
+             reader.onload = function(){
+                 var resultimg = document.getElementById('result');
+                 resultimg.innerHTML = this.result;
+                 console.log(this.result)
+             }
+             
+        
+        }
+    </script>
+</head>
+
+<body>
+<input type="file" id='file' multiple>
+<input type="button" value="读取图像" onclick="readAsDataURL()">
+<input type="button" value="读取二进制数据" onclick="uploadfile()">
+<input type="button" value="读取文本文件" onclick="readAsText()">
+
+<div id="result">
+    
+</div>
+</body>
+
+</html>

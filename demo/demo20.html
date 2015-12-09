@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        .header{width:320px; height: 30px; background: #FF0000; line-height: 30px; text-align: center; padding: 0 10px;}
+        .left{float:left; background: #fff; }
+        .right{float:right;background: #fff; }
+    </style>
+</head>
+<body>
+<div class="header">
+    <a href="demo1.html" class="left" disabled="disabled">left</a>
+    contentconte
+    <a class="right" href="">right</a>
+</div>
+<ul></ul>
+<script src="js/jquery.js"></script>
+<script id="commentTemplate" type="text/html">
+    <li>
+        <div class="photo">
+            <a href="#">111</a></div>
+        <p>
+            <a href="#"></a><span class="time">222</span></p>
+        <div class="clear">
+        </div>
+    </li>
+
+</script>
+
+<script>
+  
+    $(function(){
+        var tpl = $('#commentTemplate').html();
+        $('ul').append(tpl);
+
+    })
+</script>
+</body>
+</html>

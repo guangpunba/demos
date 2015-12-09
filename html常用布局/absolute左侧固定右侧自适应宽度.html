@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="reset.css"/>
+    <title>两列布局:右侧自适应，左侧固定</title>
+    <style>
+        *{margin:0;padding:0;}
+        html,body{height: 100%; }
+        .left{width:200px; height: 100%; background: #ddd; position: absolute; top: 0; left: 0;}
+        .right{ height: 100%;  background: #00b3ee; margin-left: 200px; }
+        .content{width:90%; height: 100px; background: #FF0000; margin:0 auto;}
+    </style>
+</head>
+<body>
+<div class="right">
+    <div class="content">右侧</div>
+</div>
+<div class="left">
+    左侧
+</div>
+
+
+</body>
+</html>

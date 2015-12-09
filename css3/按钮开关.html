@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>开关插件</title>
+<style>
+.radioSub{
+	width:75px;
+	height:30px;
+	border-radius:15px;
+	position:relative;
+	cursor:pointer
+}
+.radioSub_on{
+	background:#99C94D;
+	border:1px solid #88B441;
+}
+.radioSub_off{
+	background:#9E9E9E;
+	border:1px solid #969696;
+}
+.spanView{
+	height:20px;
+	display:block;
+}
+.on_left{
+	display:block;
+	position:absolute;
+	left:15px;top:5px;
+	color:#fff;
+	font-weight:bold
+}
+.off_right{
+	display:none;
+	position:absolute;
+	right:10px;top:5px;
+	color:#fff;
+	font-weight:bold
+}
+.cicle_btn{
+	display:block;
+	width:26px;
+	height:26px;
+	position:absolute;
+	top:2px;right:2px;
+	background:#fff;
+	border-radius:50%;
+}
+.radio{
+	display:none
+}
+</style>
+</head>
+
+<body>
+<div class="radioSub radioSub_on">
+	<input type="checkbox" class="radio" >
+	<span class="spanView on_left">On</span>
+    <span class="spanView off_right">Off</span>
+    <span class="cicle_btn"></span>
+</div>
+<div class="radioSub radioSub_on">
+	<input type="checkbox" class="radio" checked>
+	<span class="spanView on_left">On</span>
+    <span class="spanView off_right">Off</span>
+    <span class="cicle_btn"></span>
+</div>
+<!--<script src="js/jquery-1.8.3.min.js"></script>-->
+<script src="http://code.jquery.com/jquery-1.11.2.js"></script>
+<script>
+$(function(){
+	checkBox.init();
+})
+$('.radioSub').click(function(){
+	checkBox.clikFunction($(this));
+});
+var checkBox = {
+	'speed':500,
+	init:function(){
+		var speed = this.speed;
+		var radio = $('.radio');
+		for(var i=0;i<radio.length;i++){
+			if($(radio[i]).prop('checked')){
+				$(radio[i]).parent('.radioSub').removeClass('radioSub_on').removeClass('radioSub_off').addClass('radioSub_on');
+			}else{
+				$(radio[i]).parent('.radioSub').removeClass('radioSub_on').removeClass('radioSub_off').addClass('radioSub_off');
+				$(radio[i]).siblings('.cicle_btn').animate({right:47+'px'},speed);
+				$(radio[i]).siblings('.off_right').fadeIn(speed);
+				$(radio[i]).siblings('.on_left').fadeOut(speed);
+			}
+		}
+	},
+	clikFunction:function(thisDOM){
+		var speed = this.speed;
+		if(thisDOM.hasClass('radioSub_on')){
+			thisDOM.removeClass('radioSub_on').addClass('radioSub_off');
+			thisDOM.find('.cicle_btn').animate({right:47+'px'},speed);
+			thisDOM.find('.off_right').fadeIn(speed);
+			thisDOM.find('.on_left').fadeOut(speed);
+			this.checkFunction(thisDOM,'off');
+		}else{
+			thisDOM.removeClass('radioSub_off').addClass('radioSub_on');
+			thisDOM.find('.cicle_btn').animate({right:2+'px'},speed);
+			thisDOM.find('.on_left').fadeIn(speed);
+			thisDOM.find('.off_right').fadeOut(speed);
+			this.checkFunction(thisDOM,'on');
+		}
+	},
+	checkFunction:function(thisDom,state){
+		if(state=='on'){
+			$(thisDom).find('.radio').prop('checked',true);
+		}else{
+			$(thisDom).find('.radio').prop('checked',false);
+		}
+	},
+
+}
+</script>
+</body>
+</html>

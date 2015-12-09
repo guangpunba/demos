@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+    <style>
+        .red{width:100px; height: 100px; background: #ff0000;}
+        .blue{width:100px; height: 100px; background: #00b3ee;}
+    </style>
+</head>
+<body>
+<div id="box" class="red">
+    <input type="button" value="按钮" id="btn"/>
+</div>
+
+
+
+<script>
+    window.onload = function() {
+        var btn = document.getElementById('btn');
+        var div = document.getElementById('box');
+
+        //div.onclick = blueFn;
+        div.addEventListener('click',blueFn,false);
+    }
+
+    function redFn(){
+        this.className = 'red';
+        //this.onclick = blueFn;
+        this.removeEventListener('click',redFn,false);
+        this.addEventListener('click',blueFn,false);
+    }
+    function blueFn(){
+        this.className = 'blue';
+        //this.onclick = redFn;
+        this.removeEventListener('click',blueFn,false);
+        this.addEventListener('click',redFn,false);
+    }
+</script>
+</body>
+</html>

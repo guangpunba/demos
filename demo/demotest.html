@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content=“IE=edge″/>
+    <meta name="keywords" content="这里写关键字（用‘ ， ’隔开）"/>
+    <meta name="description" content="这里写网站描述（用' 、'隔开）"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>页面名称</title>
+
+
+    <script src="js/jquery.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="./js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style>
+        *{
+            margin:0;padding:0;
+        }
+        html,body{
+            height: 100%;
+        }
+        .bgpic {
+            background-image: url('http://img0.bdstatic.com/img/image/6992fdda3cc7cd98d10273a6b34233fb80e7aec90cc.jpg');
+            background-size: cover;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+            src='http://img0.bdstatic.com/img/image/6992fdda3cc7cd98d10273a6b34233fb80e7aec90cc.jpg',
+            sizingMethod='scale');
+        }
+        .box{
+            
+            width:193px;
+            height: 89px;
+            background:url("images/bg.png") 0 0 no-repeat;
+            
+        }
+      
+    </style>
+</head>
+
+<body>
+<!--<div class="box"></div>-->
+<!--<div  class="bgpic" style="width:500px;height:500px;"></div>-->
+<!--<div class="box">
+    
+</div>-->
+<div class="main">123</div>
+<div id="list">32111</div>
+<script>
+/*    var obj=new Image();
+
+obj.src="images/bgbg.jpg";
+
+obj.onload=function(){
+    if(obj.complete){
+        console.log(obj.complete)
+        console.log(1)
+    }else{
+        console.log(2)
+    }
+//alert('图片的宽度为：'+obj.width+';图片的高度为：'+obj.height);
+
+document.getElementById("list").innerHTML="<img src='"+this.src+"' />";
+}*/
+
+/*$('img').bind('load',function(){
+    console.log('加载完成')
+})    
+document.onclick = function(e){
+    var e = e || window.Event;
+    var target = e.srcElement || e.target;
+    console.log()
+} */
+//setInterval(b,1000);
+    function fn1(){
+        this.colors = [1,2,3];
+        this.name ='kobe';
+    }
+    function fn2(){
+        fn1.call(this)
+    }    
+    var obj = new fn2();
+    
+    console.log(obj instanceof Object)
+</script>
+</body>
+</html>

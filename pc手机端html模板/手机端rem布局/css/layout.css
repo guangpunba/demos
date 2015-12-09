@@ -1,0 +1,87 @@
+
+/*
+    设计图尺寸640px；
+    切图以320px为基准；
+    根据html{font-size:10px;}为基准设置rem；
+    例如： 10 * 32rem = 320px;
+    元素的宽度或高度/10 = 该元素的rem；计算的是640px的rem，再除以2就是320px的rem;
+
+    响应式其他设备屏幕宽度计算方法：
+    设备屏幕宽度/16rem = html{font-size:?px;}
+*/
+
+/*
+如果font-size:20px; 1rem = 20px;
+如果font-size:10px; 1rem = 10px;   
+*/
+body{
+    background: url("../images/index_bg1.png") no-repeat;
+    background-size: cover;
+}
+header{
+    width:32rem;
+    height: 10rem;
+    background: #0088bb;
+}
+.left{
+    float:left;
+    width:10rem;/* 10rem = 100px */
+    height: 6rem;
+    background: #ccc;
+}
+.right{
+    float: right;
+    width:22rem;
+    height: 6rem;
+    background: #008000;
+}
+.logo{
+    width:4.9rem;
+    height:4.9rem;
+    background:url("../images/logo1.png") no-repeat;
+
+    margin: 5rem auto 0;
+    background-size: cover;
+}
+.logo_text{
+    width:100%;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    color: #fff;
+}
+
+@media screen and (min-width:360px){
+    html{
+        font-size: 22.5px;
+    }
+    header{
+        background: #0088bb;
+    }
+}
+@media screen and (min-width:375px){
+    html{
+        font-size: 23.4375px;
+    }
+    header{
+        background: #ff0000;
+    }
+}
+@media screen and (min-width:384px){
+    html{
+        font-size: 24px;
+    }
+    header{
+        background: #ff00ff;
+    }
+}
+@media screen and (min-width:414px){
+    html{
+        font-size: 25.875px;
+    }
+    header{
+        background: #333;
+    }
+
+}
+

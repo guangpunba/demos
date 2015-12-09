@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas加载图片</title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{margin:0;padding:0;}
+	</style>
+</head>
+<body>
+
+<canvas id="cvs"></canvas>
+
+
+<script>
+		var box = document.getElementsByTagName('body')[0];
+       
+		var imgobj = new Image();
+			imgobj.onload = function(){
+					var cvs = document.getElementById('cvs');
+					var d = cvs.getContext('2d');
+					cvs.width = 500;
+					cvs.height = 500;
+					cvs.style.background = '#cccccc';
+					d.width = 50;
+					d.height = 50;
+					d.drawImage(this,10,10);
+                    //box.innerHTML = "<img src='"+imgobj.src+"'>"+imgobj.width;
+			}
+			imgobj.src = 'images/m4.jpg';
+		
+</script>
+</body>
+</html>

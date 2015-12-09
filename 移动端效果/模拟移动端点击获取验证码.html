@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>点击倒计时</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .main {
+      margin: 100px auto;
+      width: 400px;
+      height: 300px;
+    }
+    .main .text input {
+      width: 200px;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid #dddddd;
+      float: left;
+      padding-left: 10px;
+      margin-right: 10px;
+      font-size: 14px;
+      outline: none;
+    }
+    .main .btn {
+      width: 150px;
+      height: 40px;
+      line-height: 40px;
+      background: #3cf;
+      text-align: center;
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+    }
+    .main .gray {
+      background: #dddddd;
+      color: block;
+    }
+  </style>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $(document).on('click', '.btn', function (e) {  // 绑定事件给document元素绑定on事件，然后找要点击的class
+        if ($(e.target).hasClass('gray')) {
+          return false;
+        } else {
+          time($(this));
+        }
+      })
+      var i = 30; // 倒计时时间
+      function time (t) {
+        if (i == 0) {
+          t.removeClass('gray');
+          t.html('免费获取验证码');
+          i = 30;  // 与声明的倒计时时间相同
+          t.bind('click'); // 时间结束后，再次绑定click事件
+        } else {
+          t.html('<span>'+i+'</span>'+'秒后重新发送'); // 显示的倒计时
+          t.addClass('gray');
+          t.unbind('click'); // 取消click事件
+          i--;
+          setTimeout(function () {
+            time(t);
+          }, 1000);
+        }
+      }
+    })
+  </script>
+</head>
+<body>
+  <div class="main">
+    <div class="text">
+      <input type="text" placeholder="请输入验证码">
+    </div>
+    <a href="javascript:;" class="btn">免费获取验证码</a>
+  </div>
+</body>
+</html>

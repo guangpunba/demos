@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content=“IE=edge″/>
+    <meta name="keywords" content="这里写关键字（用‘ ， ’隔开）"/>
+    <meta name="description" content="这里写网站描述（用' 、'隔开）"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>validate</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/jquery.1.10.2.js"></script>
+    <script src="js/swiper.min.js"></script>
+    
+
+    <!--[if lt IE 9]>
+    <script src="./js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style>
+        *{margin:0;padding:0;}
+        .tabs_menu{width:200px;height: 30px;line-height: 30px;}
+        .tabs_menu li{background: #ccc; float: left; list-style: none; width:100px;}
+        .tabs_menu li.on{color: #f00;}
+        .tabs_content{width:200px;overflow: hidden; background: #f4f4f4; height: 100px;}
+        .swiper-slide{
+            width:100%;
+            
+        }
+    </style>
+</head>
+
+<body>
+<div class="tabs_menu">
+    <ul>
+        <li class='on'>按钮1</li>
+        <li>按钮2</li>
+    </ul>
+</div>
+<div class="tabs_content" id="tabs-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">11111</div>
+        <div class="swiper-slide">222222</div>
+    </div>
+</div>
+<script> 
+var tabsSwiper = new Swiper('#tabs-container',{
+        speed:500,
+       effect : 'fade',
+        onSlideChangeStart: function(){
+            $(".tabs_menu .on").removeClass('on')
+            $(".tabs_menu li").eq(tabsSwiper.activeIndex).addClass('on')
+            
+        }
+    })
+    $(".tabs_menu li").on('touchstart mousedown',function(e){
+        e.preventDefault()
+        $(".tabs_menu .on").removeClass('on')
+        $(this).addClass('on')
+        tabsSwiper.slideTo( $(this).index() )
+    })
+</script>
+</body>
+</html>

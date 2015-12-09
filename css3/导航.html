@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        .content{width:0;height: 0; border-width: 20px;
+            border-color: #FF0000 transparent transparent transparent;
+            border-style: solid; }
+        .nav{
+            width:960px;
+            margin:10px auto;
+            background-color: #111;
+            background-image: linear-gradient(#444,#111);
+            border:1px solid #222;
+            border-radius: 6px;
+            box-shadow: 0 1px 1px #777;
+
+        }
+        .clearfix:after { content:" "; display:block; height:0; visibility:hidden; clear:both;}                                                             //伪类清除
+        .clearfix { zoom:1; }
+
+
+        .nav > li{
+            float: left;
+            border-right: 1px solid #222;
+            box-shadow: 1px 0 0 #444;
+            position:relative;
+            list-style: none;
+        }
+        .nav li a{
+            float:left;
+            color: #999;
+            text-decoration: none;
+            padding:16px 30px;
+            text-shadow: 0 1px 0 #000;
+        }
+        .nav li a:hover{
+            color:#fafafa;
+        }
+        .nav li ul{
+            visibility: hidden;
+            position: absolute;
+            top:38px;
+            background-color: #111;
+            background-image: linear-gradient(#444,#111);
+            border:1px solid #222;
+            border-radius: 3px;
+            opacity: 0;
+            z-index: 1;
+            width:100%;
+            list-style: none;
+            margin-top:20px;
+            box-shadow: 0 1px 1px #777;
+            -webkit-transtion:all .2s ease-in-out;
+            transition:all .2s ease-in-out;
+
+        }
+        .nav li ul li{
+
+            text-align: center;
+            box-shadow: 0 1px 1px #777;
+        }
+        .nav li ul li a{
+            padding: 10px;
+        }
+        .nav li:hover > ul{
+            visibility: visible;
+            opacity: 1;
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+<ul class="nav clearfix">
+    <li><a href="#">网站首页</a></li>
+    <li><a href="#">公司简介</a></li>
+    <li><a href="#">客户中心</a></li>
+    <li><a href="#">产品中心</a>
+        <ul>
+            <li><a href="#">数码111</a></li>
+            <li><a href="#">汽车111</a></li>
+            <li><a href="#">服装11</a></li>
+        </ul>
+    </li>
+    <li><a href="#">联系我们</a>
+        <ul>
+            <li>数码22</li>
+            <li>汽车22</li>
+            <li>服装22</li>
+        </ul>
+    </li>
+</ul>
+<div class="content"></div>
+</body>
+</html>

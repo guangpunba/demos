@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>模态框</title>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/layout.css"/>
+    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
+    <style>
+
+        .main{  height: 200px; border:1px solid #FF0000; vertical-align: middle; text-align: center;}
+        .alink{ margin:10px;}
+    </style>
+</head>
+<body>
+
+
+<div class="main" data-index="123">
+    <a href="javascript:void(0)" class="alink" id="btn">modal</a>
+    <a href="" class="alink">模拟 Alert</a>
+    <a href="" class="alink">模拟 Confirm</a>
+    <a href="" class="alink">模拟 Prompt</a>
+</div>
+<p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p><p>11</p>
+<p>11</p>
+<p>11</p>
+<p>11</p>
+<p>11</p>
+<p>11</p>
+<p>11</p>
+<p>11</p>
+<p>11</p>
+<p>11</p>
+<p>11</p>
+
+
+<script src="../js/jquery.1.10.2.js"></script>
+<script src="../js/jquery.myPlug.js"></script>
+<script>
+    $(function(){
+        $('.alink:eq(0)').on('click',function(e){
+            console.log(e);
+            modal('保存成功');
+        })
+
+    })
+</script>
+</body>
+</html>

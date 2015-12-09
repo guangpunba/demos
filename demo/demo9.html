@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .text{height: 30px; line-height: 30px; background: #FF0000; position: relative; }
+        .text span{width:100%;display:block;height: 14px; border-bottom: 1px dashed #fff;}
+        .text div{position: absolute;top:0;left: 0; height: 30px; line-height: 30px; text-align: center; width:100%;}
+    </style>
+</head>
+<body>
+
+
+<div class="text">
+ <span></span>
+ <div>中间线</div>
+</div>
+<script>
+    var url = 'id=123&name=test&type=66';
+
+    function getName(bb){
+        var newarr = [];
+        arr = url.split('&');
+        for(var i=0; i<arr.length; i++){
+            var a1 = arr[i].split('=');
+            newarr[a1[0]]= a1[1] ;
+
+        }
+
+       document.write(newarr[bb]);
+    }
+
+    getName('id')
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+     
+
+        input[type="checkbox"] {
+
+          -webkit-appearance: none;//去掉复选框原有的呈现方式
+              display: inline-block;
+          background: url(img/1.jpg) no-repeat;//复选框现默认显示
+
+          vertical-align: middle;
+          width: 24px;
+          height: 24px;
+          background-size: contain;
+        }
+        input[type="checkbox"]:checked {
+          background: url(img/10.jpg) no-repeat;//复选框现选中显示
+          background-size: contain;
+        }
+    </style>
+</head>
+<body>
+
+<input type="checkbox" id="box">checkbox
+</body>
+</html>

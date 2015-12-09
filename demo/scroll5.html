@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        #wrapper{position: absolute;top:0;bottom: 0; overflow: hidden; width:100%;	-webkit-overflow-scrolling: touch; }
+	</style>
+</head>
+<body>
+<div id="wrapper">
+    <ul>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li><li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li><li>...</li>
+        <li>...</li><li>...</li>
+        <li>...</li><li>...</li>
+        <li>...</li><li>...</li>
+        <li>...</li><li>...</li>
+        <li>...</li><li>...</li>
+        <li>...</li><li>...</li>
+        <li>...</li><li>...</li>
+        <li>...</li>
+    </ul>
+</div>
+<script src="js/jquery.js"></script>
+<script src="js/iscroll5.js"></script>
+<script src="js/iscroll-probe.js"></script>
+<script type="text/javascript">
+    window.onload = function(){
+        var myScroll = new IScroll('#wrapper', {
+            mouseWheel: true,
+            scrollbars: true
+        });
+       
+        console.dir(myScroll.options);
+    }
+    
+</script>
+</body>
+</html>

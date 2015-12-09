@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="这里写关键字（用‘ ， ’隔开）"/>
+    <meta name="description" content="这里写网站描述（用' 、'隔开）"/>
+    <meta http-equiv="X-UA-Compatible" content=“IE=edge″/>
+    <title>页面名称</title>
+    <link rel="shortcut icon" href="http://www.yunos.com/favicon.ico">
+    <!--[if lt IE 9]>
+    <script src="html5shiv.min.js"></script>
+    <![endif]-->
+
+    <style>
+        *{margin:0;padding:0;}
+
+        header{ height: 50px; line-height: 50px; background: #FF9900; text-align: center;}
+        nav{width:200px; height: 200px; margin:0 auto;background: #FF0000}
+    </style>
+</head>
+
+<body>
+
+<header>header</header>
+<nav>nav</nav>
+
+<input type="search" placeholder="默认字符串"/>
+<input type="color" id="num" value="123"/>
+<script>
+    var n = document.getElementById('num');
+    n.onclick = function(){
+        console.log(n.value);
+    }
+
+</script>
+</body>
+</html>

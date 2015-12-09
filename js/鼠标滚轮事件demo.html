@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin:0;padding: 0;}
+			html,body{overflow-y: hidden;}
+			body{ background:#ccc; font-family: "微软雅黑" ;font-size:14px;}
+            .header{background: #ff0000; position: fixed; width:100%; height: 50px; top: 0; left: 0; opacity: 1; z-index: 9999;}
+			.box {overflow: hidden;position: relative; z-index: 888;}
+			.section{position: relative;}
+			.a1{background: #0088BB;}
+			.a2{background: #008000;}
+			.a3{background: #FF5500;}
+			.a4{background: #66512C;}
+			.a5{background: #ff0000;}
+			#navUl{position: fixed; right:20px; top: 46%; z-index:999;}
+			#navUl li{ width:14px; height: 14px; border-radius: 7px; background: #CCCCCC; list-style: none; margin: 5px 0;}
+			#navUl li.active{background: #000000;}
+		</style>
+	</head>
+	<body>
+        <div class="header">123</div>
+		<div class="box" id="box">
+			<div class="section a1">
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+			</div>
+			<div class="section a2">
+				<p>2</p>
+				<p>2</p>
+				<p>2</p>
+				<p>2</p>
+				<p>2</p>
+				<p>2</p>
+			</div>
+			<div class="section a3">
+				<p>3</p>
+				<p>3</p>
+				<p>3</p>
+				<p>3</p>
+				<p>3</p>
+				<p>3</p>
+			</div>
+			<div class="section a4">
+				<p>4</p>
+				<p>4</p>
+				<p>4</p>
+				<p>4</p>
+				<p>4</p>
+				<p>4</p>
+			</div>
+			<div class="section a5">
+				<p>5</p>
+				<p>5</p>
+				<p>5</p>
+				<p>5</p>
+				<p>5</p>
+				<p>5</p>
+			</div>
+
+        </div>
+		
+		
+		
+		<script type="text/javascript" src="./js/jquery.1.10.2.js"></script>
+		<script type="text/javascript" src="./js/jquery.mousewheel.js"></script>
+		<script>
+			
+			(function(){
+				var $winH = $(window).height();
+                var $box = $('#box');
+				var $section = $('.section');
+				var index = 0;
+
+				$section.each(function(){
+					$(this).height($winH);
+				})
+				function buttons(){
+					var $ul = $('<ul></ul>').appendTo('body').attr('id','navUl');
+					for(var i=0; i<$section.length; i++){
+						$($ul).append('<li index=' + i + '></li>');
+					}
+					$ul.find('li').first().addClass('active');
+					
+				}
+                function myAnimated(n){
+                    $box.animate({
+                        top : -$winH * n
+                    },1000)
+
+                }
+
+				$(document).bind('mousewheel',function(e,a){
+                    var lis = $('#navUl').find('li');
+                    if($box.is(':animated')){
+                        return
+                    }
+                    if(a < 0){
+						if(index == $section.length-1){
+							index = $section.length-1;
+						}else{
+                            var n = index + 1;
+
+                            lis.eq(n).addClass('active').siblings().removeClass('active');
+                            myAnimated(n);
+
+                            index++;
+                        }
+                    }else{
+						if(index == 0){
+							index = 0;
+						}else{
+                            var n = index - 1;
+                            lis.eq(n).addClass('active').siblings().removeClass('active');
+                            myAnimated(n);
+                            index--;
+                        }
+                    }
+				})
+				
+				buttons();
+			})()
+			
+		</script>
+	</body>
+</html>

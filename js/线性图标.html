@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        #content{width:500px; height: 250px; background: #dddddd;}
+        path{fill:none;stroke:red;stroke-width:2;}
+        .domain,.tick{stroke:blue;}
+    </style>
+</head>
+<body>
+
+<div id="content">
+
+</div>
+<script src="js/jquery.1.10.2.js"></script>
+<script src="http://d3js.org/d3.v3.js"></script>
+<script>
+    var w = 500, //svg宽度
+        h = 250, //svg高度
+        m = {left:50,top:30,right:20,bottom:20},
+        g_w = w - m.left - m.right,
+        g_h = h - m.top - m.bottom;
+    var svg = d3.select('#content').append('线性图标').attr('width',w).attr('height',h); //创建一个svg并且设置宽和高
+    var g = d3.select('线性图标').append('g').attr('transform','translate(' + m.left + ',' + m.top + ')');
+
+    var data = [1,3,4,7,8,4,3,7]; //数据
+
+    /*******************
+     * scale_x
+     * domain([从0开始,x轴最大值])
+     *
+     * scale_y
+     * domain([从0开始,数据中最大值])
+     */
+    var scale_x = d3.scale.linear().domain([0,data.length - 1]).range([0,g_w]);
+    var scale_y = d3.scale.linear().domain([0,d3.max(data)]).range([g_h,0]);
+
+    var line_generator = d3.svg.line().x(function(d,i){
+        return scale_x(i); //数组下标
+    }).y(function(d){
+        return scale_y(d); //数组中值
+    }).interpolate('cardinal');
+    g.append('path').attr('d',line_generator(data));
+    //创建x，y坐标轴
+    var x_axis = d3.svg.axis().scale(scale_x);
+    var y_axis = d3.svg.axis().scale(scale_y).orient('left');
+
+    g.append('g').call(x_axis).attr('transform','translate(0,' + g_h +')');
+    g.append('g').call(y_axis).append('text').text('价格')
+            .attr('transform','rotate(-90)') //将文字旋转
+            .attr('text-anchor','end') //设置文字末尾和y轴顶部对齐
+            .attr('dy','1em')
+
+</script>
+</body>
+</html>

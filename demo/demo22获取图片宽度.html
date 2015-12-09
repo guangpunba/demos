@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #pic{width:200px;height: 200px;overflow: hidden;}
+        #pic img{width:100%;height: 100%;}
+    </style>
+</head>
+<body>
+<div id="pic"></div>
+<!--<script>
+    // 图片地址
+    //var img_url = 'http://www.qttc.net/static/upload/2013/13643608813441.jpg?'+Date.parse(new Date());
+    var img_url = 'images/m1.jpg';
+    // 创建对象
+    var img = new Image();
+    // 改变图片的src
+    img.src = img_url;
+    // 定时执行获取宽高
+    var check = function(){
+        document.body.innerHTML += 'from:check : width:'+img.width+',height:'+img.height+'<br>';
+    }
+    var set = setInterval(check,40);
+    // 加载完成获取宽高
+    img.onload = function(){
+        document.body.innerHTML += 'from:onload : width:'+img.width+',height:'+img.height+'';
+// 取消定时获取宽高
+        clearInterval(set);
+    };
+</script>-->
+<script>
+    // 记录当前时间戳
+    var start_time = new Date().getTime();
+    // 图片地址
+    var img_url = 'http://b.zol-img.com.cn/desk/bizhi/image/2/2560x1600/1365477614755.jpg?'+start_time;
+    // 创建对象
+    var img = new Image();
+    // 改变图片的src
+    img.src = img_url;
+    // 定时执行获取宽高
+     document.getElementById('pic').innerHTML = '<img src="'+img_url+'">';
+
+
+
+    var check = function(){
+    // 只要任何一方大于0
+    // 表示已经服务器已经返回宽高
+        if(img.width>0 || img.height>0){
+            var diff = new Date().getTime() - start_time;
+            document.body.innerHTML += 'from:check : width:'+img.width+',height:'+img.height+', time:'+diff+'ms<br/>';
+           
+            console.log(img.width);
+
+            clearInterval(set);
+        }
+    };
+ 
+    var set = setInterval(check,40);
+    // 加载完成获取宽高
+    img.onload = function(){
+        console.log('load加载完成')
+        var diff = new Date().getTime() - start_time;
+        document.body.innerHTML += 'from:onload : width:'+img.width+',height:'+img.height+', time:'+diff+'ms<br/>';
+        //document.body.appendChild(img);
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{float:left; list-style: none;padding: 10px;}
+    </style>
+</head>
+<body>
+<ul>
+    <li>aaa</li>
+    <li>bbb</li>
+    <li>ccc</li>
+    <li>ddd</li>
+    <li>eee</li>
+</ul>
+
+<script src="./js/jquery.js"></script>
+<script>
+    $(function(){
+        //each 获取索引i
+        /*$('ul > li').each(function(i){
+            $(this).click(function(){
+                console.log(i);
+            })
+        })*/
+        // index() 获取索引
+        $('ul > li').click(function(){
+            var index = $(this).index();
+            $(this).attr('index',index);
+            this.title = index;
+            console.log(index);
+        })
+    })
+</script>
+</body>
+</html>

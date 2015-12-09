@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    *{margin:0;padding:0;}
+    .box{width:100%; background: #FF0000;height: 50px; line-height: 50px; text-align: center; padding: 0 10px; -moz-box-sizing: border-box;}
+    .box > a:nth-child(1){text-decoration: none; float: left;}
+    .box > a:nth-child(2){text-decoration: none; float: right;}
+
+</style>
+<body>
+<<<<<<< HEAD
+<!--<input type="checkbox" value="1" name="check"/>
+<input type="checkbox" value="1" name="check"/>
+<input type="checkbox" value="1" name="check"/>
+<input type="button" value="选中的个数" id="btn"/>
+<script type="text/javascript">
+        var btn=document.getElementById("btn");
+        btn.onclick=function(){
+                var arrays=new Array();
+                var items=document.getElementsByName("check");
+                for(var i=0;i<items.length;i++){
+                        if(items[i].checked){
+                                arrays.push(items[i].value);
+                        }
+                }
+               
+                alert("您选中的个数为："+arrays.length);
+        }
+</script>-->
+<a href="#" id='bbb'>bbbb</a>
+<a href="#" id='aa'>anna</a>
+<script>
+    var btn = document.getElementById('bbb');
+    btn.onclick = function(){
+        alert(1)
+    }
+    
+    var btn1 = document.getElementById('aa');
+    btn1.onmouseover = function(){
+        btn.onclick();
+    }
+=======
+<div class="box" data-index="123">
+    <a href="1">1</a>
+    <a href="2">2</a>
+    <div id="a1">a1</div>
+    <input type="radio" name="sex" value="1" onclick="alert(value)" />男
+    <input type="radio" name="sex" value="0" checked/>女
+</div>
+<div class="main">
+    内容
+</div>
+<script>
+
+    window.onload = function(){
+        var obj = document.getElementsByClassName('box')[0];
+        var main = document.getElementsByClassName('main')[0];
+        /*
+        if(obj.nodeType == 1){ //检查节点类型看是不是一个元素 等于1 是一个元素
+            var v = obj.nodeName;
+        }*/
+
+        //obj.hasChildNodes() 检查是否包含子节点 包含返回true；
+        //var url = document.URL; //当前页面路径
+        //var domain = document.domain; //获取域名
+        //console.log(obj.dataset.index) //获取data-index值
+        obj.onclick = function(e){
+            console.log(e.target)
+        }
+
+    }
+
+
+
+>>>>>>> parent of b39dccb... w
+</script>
+</body>
+</html>

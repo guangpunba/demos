@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+
+<input type="button" value="按钮" id="btn"/>
+
+<noscript>
+	必须启用javascript
+</noscript>
+
+<script>
+    window.onload = function(){
+        var btn = document.getElementById('btn');
+        document.onclick = function(event){
+
+            //e.target.style.color = 'red';
+            console.log(targetELement(event).id);
+        }
+        document.onmousemove = function(e){
+            e = e || window.event;
+            //console.log('X:' + e.clientX + ',' + 'Y:' + e.clientY );
+        }
+        document.onmouseup = function(event){
+
+            //console.log(getButton(event));
+        }
+
+    }
+    //兼容target属性方法
+    function targetELement(event){
+        var e = event || window.event;
+        return e.target || e.srcElement;
+    }
+//跨浏览器按钮事件
+   function getButton(event){
+       e = event || window.event;
+       if(event){
+          return e.button;
+       }else if(window.event){
+           switch (e.button){
+               case 1 :
+                   return 0;
+               case 4 :
+                   return 1;
+               case 2 :
+                   return 2;
+               case 0 :
+                   return 2;
+           }
+       }
+
+   }
+</script>
+</body>
+</html>

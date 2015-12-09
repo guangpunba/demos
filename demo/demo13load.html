@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        html,body{height: 100%;}
+
+    </style>
+</head>
+<body>
+<div id="content">
+
+</div>
+<div class="box">
+    <ul></ul>
+</div>
+<button id="btnShow">加载</button>
+<script src="js/jquery.js"></script>
+<script>
+    $(function(){
+        //$("#content").load("test.txt #p1");
+        $("#content").load("demo20.html");
+       /* $('.box').ajaxStart(function(){
+            
+            $(this).html("正在请求数据...");
+        });
+        $('.box').ajaxStop(function(){
+            
+            $(this).html("正在请求数据完成");
+        });
+        $("#btnShow").bind("click", function () {
+            var $this = $(this);
+            $.post('test.txt',function(data){
+                $('#content').html(data);
+            },'text')
+           
+        })
+        $.ajax({
+                url: "test.txt",
+                dataType: "text",
+                success: function (data) {
+                    //$this.attr("disabled", "true");
+                    console.log(data);
+                    $('#content').html(data);
+                    //$("ul").append("<li>我的名字叫：" + data + "</li>");
+                }
+            });*/
+    })
+
+</script>
+</body>
+</html>

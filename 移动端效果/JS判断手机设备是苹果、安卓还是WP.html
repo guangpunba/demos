@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<span style="width:100px;height: 100px;  background: #ff0000; margin: 110px 0">
+    123
+</span>
+
+<script>
+    var u = navigator.userAgent;
+
+    if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {//安卓手机
+
+        alert("安卓手机");
+
+    } else if (u.indexOf('iPhone') > -1) {//苹果手机
+
+        alert("苹果手机");
+
+    } else if (u.indexOf('Windows Phone') > -1) {//winphone手机
+
+        alert("winphone手机");
+
+    }else{
+        alert("pc");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content=“IE=edge″/>
+    <meta name="keywords" content="这里写关键字（用‘ ， ’隔开）"/>
+    <meta name="description" content="这里写网站描述（用' 、'隔开）"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>页面名称</title>
+
+    <style>
+        *{
+            margin:0;padding:0;
+        }
+        .main{
+            width:200px;
+            height: 200px;
+            background: #333;
+            margin:1100px auto;
+        }
+    </style>
+</head>
+
+<body>
+<div id="box" class="main"></div>
+<script src="js/jquery.js"></script>
+<script>
+var a;    
+navigator.geolocation.getCurrentPosition(showSuccess,showError);
+function showSuccess (position) {
+        // 获取的位置的纬度
+        a = position.coords.latitude;
+        // 获取的位置的经度
+        position.coords.longitude;
+        // 获取的位置的精度
+        position.coords.accuracy;
+        // 获取的位置的海拔
+        position.coords.altitude;
+        // 获取的位置的海拔的精度
+        position.coords.altitudeAccuracy;
+        // 获取的位置的方向，从正北开始
+        position.coords.heading
+        // 获取设备的速度
+        position.coords.speed
+        // 获取位置的时间日期
+        position.timestamp
+        
+}
+
+function showError (error) {
+        // 用户不允许获得地理位置
+        error.PERMISSION_DENIED;
+        // 无法获取到设备的位置
+        error.POSITION_UNAVAILABLE;
+        // 操作超时
+        error.TIMEOUT;
+        // 未知错误
+        error.UNKNOWN_ERROR;
+}
+
+    
+
+</script>
+</body>
+</html>

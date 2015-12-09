@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+    var arr = [12,4,56,78,23,51];
+    arr.sort(function(a,b){
+        return a-b;
+    });
+    //console.log(arr);
+
+    var b=[13,2,23,15];
+    console.log(Array.isArray(b)); //判断是否是数组
+    //console.log(Math.max.apply(null, b));//最大值
+    //console.log(Math.min.apply(null, b));//最小值
+    Array.prototype.unique = function(){
+        this.sort();
+        var re=[this[0]];
+        for(var i = 1; i < this.length; i++)        {
+            if( this[i] !== re[re.length-1]){
+                re.push(this[i]);
+            }
+        }
+        return re;
+    }
+
+    var aaa = [1,1,1,2,21,2,2,1,2,3,21,2,3,21,2];
+    var cc = aaa.unique();
+    console.log(cc.length);
+</script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>焦点轮播图</title>
+    <link rel="stylesheet" href="animate.css">
+    <style type="text/css">
+        *{ margin: 0; padding: 0; text-decoration: none;}
+        body { padding:20px 0;}
+        #box{background: #ccc;}
+        #container{width:1000px; height:400px; margin:0 auto; overflow: hidden; position: relative;}
+        #list{width:7000px;position: absolute; left: 0; top: 0; z-index: 1;}
+        #list img{float: left; width:1000px; height: 400px; }
+        #buttons { position: absolute; height: 10px; width: 100%; z-index: 2; bottom: 20px; left: 0; text-align: center;}
+        #buttons span { cursor: pointer;  border: 1px solid #fff; display: inline-block; width: 10px; height: 10px;  border-radius: 50%; background: #333; margin-right: 5px;}
+        #buttons .on {  background: #ff6600;}
+        .arrow {width:40px; height: 40px;  background-color: RGBA(0,0,0,.3); z-index: 2; position: absolute; top: 50%; margin-top: -20px; font-size: 36px; color: #fff; text-align: center; display: none; }
+        .arrow:hover { background-color: RGBA(0,0,0,.7);}
+        #container:hover .arrow { display: block;}
+        #prev { left: 20px;}
+        #next { right: 20px;}
+    </style>
+    <script type="text/javascript"> 
+    window.onload = function(){
+       
+        var container = document.getElementById('container');
+        var list = document.getElementById('list');
+        var buttons = document.getElementById('buttons').getElementsByTagName('span');
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+        var index = 1;
+        var animated = false;
+        var timer ;
+
+       
+        //添加按钮样式
+        function showButtons(){
+            for(var i=0; i< buttons.length; i++){
+                if(buttons[i].className == "on"){
+                    buttons[i].className = ''; 
+                    break;
+                }
+            }
+            buttons[index - 1].className = 'on';
+        }
+        function animate(offset){
+            var newLeft = parseInt(list.style.left) + offset;
+            var time = 500; // 位移总时间；
+            var interval = 10; //位移间隔时间；
+            var speed = offset/(time/interval); //每次位移量；
+            var body = document.getElementById('body');
+            animated = true;
+            
+            
+            switch (index){
+                case 1:
+                    body.style.background = "url('./img/bg1.jpg')";
+                  
+                    break;
+                case 2:
+                    body.style.background = "url('./img/bg2.gif')";
+                    body.className = "";
+                  
+                    break;
+                case 3:
+                    body.style.background = "url('./img/bg3.gif')";
+                    
+                    break;
+                case 4:
+                    body.style.background = "url('./img/bg4.jpg')";
+                    break;
+                case 5:
+                    body.style.background = "url('./img/bg5.gif')";
+                    break;
+            }
+            function go(){
+                if ( (speed > 0 && parseInt(list.style.left) < newLeft) || (speed < 0 && parseInt(list.style.left) > newLeft)){
+                    list.style.left = parseInt(list.style.left) + speed + 'px';
+                    setTimeout(go, interval);
+                }else{
+                    list.style.left =  newLeft + 'px';
+                    if (newLeft > -1000) {
+                        list.style.left = -5000 + 'px';
+                    }else if (newLeft < -5000) {
+                        list.style.left = -1000 + 'px';
+                    };
+                    animated = false;
+                }
+            }
+            go();
+            
+        }
+        next.onclick = function(){
+            if (animated) {
+                return;
+            }
+            if(index == 5){
+                index = 1;
+            }else{
+                index += 1;
+            }
+            animate(-1000);
+            showButtons();
+            
+        }
+        prev.onclick = function(){
+            if (animated) {
+                return;
+            }
+            if(index == 1){
+                index = 5; 
+            }else{
+                index -= 1;
+            }
+            animate(1000);
+            showButtons();
+        }
+        function play(){
+            timer = setInterval(function(){
+                next.onclick();
+            },3000)
+        }
+        function stop(){
+            clearInterval(timer);
+        }
+        for(var i=0; i<buttons.length; i++){
+            buttons[i].onclick = function(){
+                if (animated) {
+                    return;
+                }
+                if(this.className == 'on'){
+                    return;
+                }
+                var myIndex = parseInt(this.getAttribute('index')); //getAttribute获取自定义属性；
+                var offset = -1000 * parseInt(myIndex - index);
+                index = myIndex;
+                animate(offset);
+                showButtons();
+                
+            }
+        }
+        container.onmouseover = stop;
+        container.onmouseout = play;
+        play();
+    }
+    </script>
+</head>
+<body id="body" style="background:url('./img/bg1.jpg')" >
+<div id="box">
+    <div id="container">
+        <div id="list" style="left:-1000px;">
+            <img src="img/5.jpg" alt="1"/>
+            <img src="img/1.jpg" alt="1"/>
+            <img src="img/2.jpg" alt="2"/>
+            <img src="img/3.jpg" alt="3"/>
+            <img src="img/4.jpg" alt="4"/>
+            <img src="img/5.jpg" alt="5"/>
+            <img src="img/1.jpg" alt="5"/>
+        </div>
+        <div id="buttons">
+            <span index="1" class="on"></span>
+            <span index="2"></span>
+            <span index="3"></span>
+            <span index="4"></span>
+            <span index="5"></span>
+        </div>
+        <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+        <a href="javascript:;" id="next" class="arrow">&gt;</a>
+    </div>
+</div>
+</body>
+</html>

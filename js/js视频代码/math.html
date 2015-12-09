@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+
+
+</head>
+<body>
+
+<input type="text" value="" id="aa" style="position: absolute"/>
+
+ 
+<script type="text/javascript">
+
+ var b=[13,2,23,15];
+ console.log(Math.max.apply(null, b));//最大值
+ console.log(Math.min.apply(null, b));//最小值
+
+ var a = 28.48;
+ console.log(Math.ceil(a));    //向上舍入取整；
+ console.log(Math.floor(a));   //向下舍入取整；
+ console.log(Math.round(a));   //四舍五入取整；
+
+ console.log(Math.random());   //随机数；
+
+ console.log(Math.floor(Math.random()*10+1));  //1-10之间的数
+ //随机数范围
+ function randomFn(start,end){
+     var total = end - start + 1 ;  //总数
+     console.log(Math.floor(Math.random()* total + start));
+ }
+
+randomFn(5,10);
+</script>
+</body>
+</html>
