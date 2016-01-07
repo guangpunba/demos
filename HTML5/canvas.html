@@ -12,14 +12,14 @@
 <body>
 
 
-
-
 <script>
     var obj = document.getElementsByTagName('body')[0];
     var cvs = document.createElement('canvas');
     cvs.id = 'box';
     obj.appendChild(cvs);
     var imgobj = new Image();
+        console.log(imgobj);
+   
         imgobj.onload = function(){
                 var cvs1 = document.getElementById('box');
                 var d = cvs1.getContext('2d');

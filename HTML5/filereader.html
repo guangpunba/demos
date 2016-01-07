@@ -4,36 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>HTML5--本地存储SessionStorage</title>
-    <script type="text/javascript">
-        
-       
-        
-        //读取图片路径
-        function readAsDataURL(){
-             var file = document.getElementById('file').files[0];
-             var reader = new FileReader();
-             reader.readAsDataURL(file);
-             reader.onload = function(){
-                 var resultimg = document.getElementById('result');
-                 resultimg.innerHTML = '<img src="'+this.result+'">';
-                 console.log(this.result)
-             }
-        
-        }
-        //读取txt文本
-        function readAsText(){
-             var file = document.getElementById('file').files[0];
-             var reader = new FileReader();
-             reader.readAsText(file);
-             reader.onload = function(){
-                 var resultimg = document.getElementById('result');
-                 resultimg.innerHTML = this.result;
-                 console.log(this.result)
-             }
-             
-        
-        }
-    </script>
+    
 </head>
 
 <body>
@@ -46,5 +17,45 @@
     
 </div>
 </body>
+<script type="text/javascript">
+    /*var result = document.getElementById('result');
+    
+    
+    
+    if(typeof FileReader == 'undefined'){
+        console.log(1)
+        result.innerHTML="<p>你的浏览器不支持FileReader接口！</p>";  
+    }else{
+        result.innerHTML='<p>支持</p>'
+        console.log(FileReader)
+    }*/
 
+
+    //读取图片路径
+    function readAsDataURL(){
+         var file = document.getElementById('file').files[0];
+         var reader = new FileReader();
+         reader.readAsDataURL(file);
+         reader.onload = function(){
+             var resultimg = document.getElementById('result');
+             resultimg.innerHTML = '<img src="'+this.result+'">';
+             console.log(this)
+             console.log(this.result)
+         }
+
+    }
+    //读取txt文本
+    function readAsText(){
+         var file = document.getElementById('file').files[0];
+         var reader = new FileReader();
+         reader.readAsText(file);
+         reader.onload = function(){
+             var resultimg = document.getElementById('result');
+             resultimg.innerHTML = this.result;
+             console.log(this.result)
+         }
+
+
+    }
+</script>
 </html>

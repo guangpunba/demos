@@ -14,6 +14,13 @@
 如果font-size:20px; 1rem = 20px;
 如果font-size:10px; 1rem = 10px;   
 */
+
+/*html{
+    设备的宽度/320；
+    默认20px；
+    20 * (docEl.clientWidth / 320) + 'px';
+}*/
+
 body{
     background: url("../images/index_bg1.png") no-repeat;
     background-size: cover;
