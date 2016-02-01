@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>HTML5--地理位置</title>
+            <script  src="http://ditu.google.cn/maps?file=api&hl=zh-CN&v=2&key=AIzaSyB53ahyFvRubi5JXk3g6VzL1JPLsUvsDsI" type="text/javascript"> </script>
+
+        </head>
+
+        <body>
+
+        <div id="map_canvas" style="width: 500px; height: 500px"></div>
+       <!-- <script>
+            var a = navigator.geolocation
+            a.getCurrentPosition(function(position){
+                //console.log(position.coords.latitude)
+                drawMapCenteredAt(position.coords.latitude,position.coords.longitude)
+            },function(error){
+                console.log(error.code)
+            })
+
+        </script>-->
+        <script type="text/javascript">
+           function initialize(){
+                 if (GBrowserIsCompatible()){
+                    var map = new GMap2(document.getElementById("map_canvas"));
+                     var geocoder = new GClientGeocoder();
+                     var address="Macquarie St、Parramatta NSW 2150";
+                     geocoder.getLatLng(address,function(point) {
+                         if (!point){
+                            alert('地图加载失败');
+                         }
+                         else
+                         {
+                            map.setCenter(point, 13);
+                            var marker = new GMarker(point);
+                            map.addOverlay(marker);
+                            marker.openInfoWindowHtml(address);
+                        }
+                        });
+                    //map.setCenter(new GLatLng(39.9493, 116.3975), 13);
+                    //
+                    // map.setMapType(G_PHYSICAL_MAP) //地图类型
+                }
+            }
+            initialize();
+         </script>
+        </body>
+    </html>

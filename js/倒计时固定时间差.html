@@ -12,8 +12,8 @@ h1{font-family:"微软雅黑";font-size:40px;margin:20px 0;;border-bottom:solid 
 .item-title .unit{background:none;line-height:49px;font-size:24px;padding:0 10px;float:left;}
 </style>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript">
+<!--<script type="text/javascript" src="js/jquery.min.js"></script>-->
+<!--<script type="text/javascript">
 
 var intDiff = parseInt(60);//倒计时总秒数量
 
@@ -43,11 +43,11 @@ $(function(){
 	timer(intDiff);
 });	
 </script>
-
+-->
 </head>
 <body>
 <div align="center" style="width:416px; margin:0 auto">
-<h1>网页上的倒计时</h1>
+
 
 <div class="time-item">
 	<span id="day_show">0天</span>
@@ -56,9 +56,37 @@ $(function(){
 	<strong id="second_show">0秒</strong>
 </div><!--倒计时模块-->
 </div>
-<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
-<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+
 </div>
+<script>
+    var endDate = new Date('2016-2-6').getTime();
+    var startDate = new Date().getTime();
+    var dayBox = document.getElementById('day_show');
+    var hBox = document.getElementById('hour_show');
+    var mBox = document.getElementById('minute_show');
+    var sBox = document.getElementById('second_show');
+    var leftTime =  parseInt((endDate - startDate)/1000);
+    function changeTime(){
+        
+        //var leftTime = parseInt((endDate - startDate)/1000); 
+        var d = parseInt(leftTime/(3600*24));
+        var h = parseInt((leftTime/3600)%24);
+        var m = parseInt((leftTime/60)%60);
+        var s = parseInt(leftTime%60);
+        if(h < 10){
+            h = '0' + h;
+        }else if(m < 10){
+            m = '0' + m;
+        }
+        leftTime--;
+        dayBox.innerHTML = d;
+        hBox.innerHTML = h;
+        mBox.innerHTML = m;
+        sBox.innerHTML = s;
+        setTimeout(changeTime,1000)
+    }
+    changeTime();
+  
+</script>
 </body>
 </html>

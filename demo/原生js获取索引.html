@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/> 
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+      
+    
+	</style>
+</head>
+<body>
+<ul id="test">
+<li>这是第一条alert(0);</li>
+<li>这是第二条alert(1);</li>
+<li>这是第三条alert(2);</li>
+<li>这是第一条alert(3);</li>
+</ul>
+
+<script type="text/javascript">
+    var elements = document.getElementById('test').querySelectorAll('li');
+ 
+   
+    
+    
+    for (var i = 0; i < elements.length; i++) {
+      /*  (function () {                                                        //用匿名函数构成一个闭包
+            var j = i;                                                        //将i的值保存到闭包的变量j中        
+            elements[i].onclick = function () {
+                console.log(j)
+            }
+        })();    
+      */
+        elements[i].index = i;
+
+        elements[i].onclick = function(){
+            this.style.color = '#f00'
+            console.log(this.name)
+            //debugger;
+        }
+    }
+    
+    
+    
+ 
+</script>
+</body>
+</html>

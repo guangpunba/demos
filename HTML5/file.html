@@ -4,28 +4,33 @@
 <head>
     <meta charset="utf-8">
     <title>HTML5--本地存储SessionStorage</title>
-    <script type="text/javascript">
-        function uploadfile(){
-            var file;
-            for(var i=0; i<document.getElementById('file').files.length;i++){
-                file = document.getElementById('file').files[i];
-                if(!/image\/\w+/.test(file.type)){
-                    alert('不是图片')
-                }else{
-                    alert('是图片')
-                }
-            }
-            console.log(file.name);
-            console.log(file.size);
-            console.log(file.type);
-           
-        }
-    </script>
+    
 </head>
 
 <body>
 <input type="file" id='file' multiple>
 <input type="button" value="上传文件" onclick="uploadfile()">
+<script type="text/javascript">
+        
+        
+   
+
+    function uploadfile(){
+        var file;
+        for(var i=0; i<document.getElementById('file').files.length;i++){
+            file = document.getElementById('file').files[i];
+            if(!/image\/\w+/.test(file.type)){
+                alert('不是图片')
+            }else{
+                alert('是图片')
+            }
+        }
+        console.log(file.name);
+        console.log(file.size);
+        console.log(file.type);
+
+    }
+</script>
 </body>
 
 </html>

@@ -30,7 +30,41 @@
         console.log(FileReader)
     }*/
 
-
+    
+   /* function uploadfile(){
+        var file = document.getElementById('file').files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        console.log(reader)
+    }*/
+    
+    //读取二进制数据
+    function uploadfile(){  
+        var file = document.getElementById("file").files[0];  
+        var result=document.getElementById("result");  
+        var reader = new FileReader();  
+        //将文件以二进制形式读入页面  
+        reader.readAsBinaryString(file);  
+        reader.onload = function(){
+             
+             resultimg.innerHTML = '<img src="'+this.result+'">';
+             console.log(this)
+             console.log(this.result)
+         }
+        /*reader.onloadstart=function(){  
+            
+            //显示文件  
+            result.innerHTML= '123';
+            console.log(123)
+        }  */
+        /*reader.onprogress = function(e){
+            console.log(e.loaded)
+        }*/
+        /*reader.onloadend = function(){
+            result.innerHTML= '333';  
+            console.log(321)
+        }*/
+    }  
     //读取图片路径
     function readAsDataURL(){
          var file = document.getElementById('file').files[0];

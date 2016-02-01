@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas</title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{margin:0;padding:0;}
+        #main{width:100px;height: 100px;border:1px solid #f00;  margin:100px auto;}
+        #aa{width:10px;height: 10px;margin:40px; background: #ccc;}
+	</style>
+</head>
+<body>
+<div id="main">
+    <div id="aa"></div>
+</div>
+
+<script>
+    var main = document.getElementById('main');
+    var aa = document.getElementById('aa');
+    var obj = document.getElementsByTagName('body')[0];
+    var cvs = document.createElement('canvas');
+    cvs.id = 'box';
+    obj.appendChild(cvs);
+    //var imgobj = new Image();
+
+
+    loadImage('../demo/images/m4.jpg',function(img){
+        var cvs1 = document.getElementById('box');
+        var d = cvs1.getContext('2d');
+        cvs1.width = 500;
+        cvs1.height = 500;
+        cvs1.style.background = '#cccccc';
+        d.width = 50;
+        d.height = 50;
+        d.drawImage(img,10,10);
+       // console.log(img.height)
+    })
+    function loadImage(url, callback) {
+        var img = new Image(); //创建一个Image对象，实现图片的预下载
+        img.onload = function(){
+            img.onload = null;
+            callback(img);
+        }
+        img.src = url;
+    }
+
+
+
+
+</script>
+<script>
+
+</script>
+</body>
+</html>

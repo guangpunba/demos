@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>canvas</title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{margin:0;padding:0;}
+        #main{
+           
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #main img{
+            
+            filter: blur(10px); /*图片模糊*/ /*filter: grayscale(1);-webkit-filter: grayscale(1);图片变灰色*/
+            -webkit-filter:blur(10px);
+            -moz-filter:blur(10px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            
+        }
+        #canvas{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+
+        }
+        a{
+            position: absolute;
+            display: block;
+            width:100px;
+            height: 30px;
+            line-height: 30px;
+            background: #f00;
+            z-index: 3;
+            color: #fff;text-align: center;text-decoration: none;
+        }
+        #show{
+            bottom: 20px;
+            left: 50px;
+        }
+        #reset{
+            bottom: 20px;
+            right: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="main">
+    <img src="images/img-lg.jpg" alt="">
+    <canvas id='canvas'></canvas>
+    <a href="javascript:show()" id="show">显示</a>
+    <a href="javascript:reset()" id='reset'>重置</a>
+</div>
+
+<script>
+    var canvasWidth = window.innerWidth;
+    var canvasHeight = window.innerHeight;
+    
+    
+    var cvs = document.getElementById('canvas');
+    var context = cvs.getContext('2d');
+    cvs.width = canvasWidth;
+    cvs.height = canvasHeight;
+    
+    var leftmain=0,topmain=0;
+    
+    var img = new Image();
+    var radius = 50;
+ 
+    var timer;
+    var clippingRegion = {x:0,y:0,r:radius};
+    
+    img.src = 'images/img-lg.jpg';
+    img.onload = function(){
+        var main = document.getElementById('main');
+        var imgobj = main.getElementsByTagName('img')[0];
+        main.style.width = canvasWidth+'px';
+        main.style.height = canvasHeight+'px';
+        
+        
+        imgobj.style.width = img.width+'px';
+        imgobj.style.height = img.height+'px';
+        
+        leftmain = (img.width - canvasWidth)/2;
+        topmain  = (img.height - canvasHeight)/2;
+       
+        imgobj.style.top = -topmain+'px';
+        imgobj.style.left = -leftmain + 'px';
+        
+        initCanvas();
+    }
+    
+    function initCanvas(x,y){
+     
+        if(x != undefined || y != undefined){
+            clippingRegion = {x:x,y:y,r:radius};
+        }else{
+            clippingRegion = {x:Math.random()*(canvasWidth-2*radius)+radius,y:Math.random()*(canvasHeight-2*radius)+radius,r:radius};
+        }
+        
+        draw(img,clippingRegion);
+    }
+    
+    function setClippingRegion(clippingRegion){
+        context.beginPath();
+        context.arc(clippingRegion.x,clippingRegion.y,clippingRegion.r,0,Math.PI*2,false);
+        context.clip();
+    }
+    
+    function draw(img,clippingRegion){
+        context.clearRect(0,0,canvasWidth,canvasHeight);
+        context.save();
+        setClippingRegion(clippingRegion)
+        //context.drawImage(img,0,0,canvasWidth,canvasHeight);
+        context.drawImage(img,leftmain,topmain,canvasWidth,canvasHeight,0,0,canvasWidth,canvasHeight)
+        context.restore();
+    }
+    
+    function reset(){
+        clearInterval(timer);
+        radius = 0;
+        clippingRegion.x = Math.random()*(canvasWidth-2*50)+50;
+        clippingRegion.y = Math.random()*(canvasHeight-2*50)+50
+        var bb = setInterval(function(){
+            radius += 10;
+            if(radius > 50){
+                clearInterval(bb)
+            }
+            initCanvas(clippingRegion.x,clippingRegion.y);
+        },100)
+        
+        
+    }
+    
+    function show(){
+        clippingRegion.x = 250;
+        clippingRegion.y = 250;
+        //clippingRegion.r = 500;
+        timer = setInterval(aa,100)
+        
+    }
+    
+    
+    function aa(){
+        console.log(radius)
+        radius +=50;
+        clippingRegion.r = radius;
+        if(radius > 500){
+            clearInterval(timer);
+        }
+        draw(img,clippingRegion);
+    }
+    
+</script>
+
+</body>
+</html>

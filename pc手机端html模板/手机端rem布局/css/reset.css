@@ -1,6 +1,7 @@
 /* CSS Reset*/
 html { 
-	font-family:"微软雅黑", "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif; 
+	/*font-family:"微软雅黑", "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif; */
+    font-family:Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC","Hiragino Sans GB",Simsun,sans-self;
 	-ms-text-size-adjust: 100%; 
 	-webkit-text-size-adjust: 100%; /* 阻止旋转屏幕时自动调整字体大小 */
 	font-size: 10px;

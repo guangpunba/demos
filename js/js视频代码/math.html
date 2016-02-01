@@ -19,13 +19,13 @@
  console.log(Math.max.apply(null, b));//最大值
  console.log(Math.min.apply(null, b));//最小值
 
- var a = 28.48;
+ var a = 28.488;
  console.log(Math.ceil(a));    //向上舍入取整；
  console.log(Math.floor(a));   //向下舍入取整；
  console.log(Math.round(a));   //四舍五入取整；
 
  console.log(Math.random());   //随机数；
-
+console.log('保留小数：'+a.toFixed(2))
  console.log(Math.floor(Math.random()*10+1));  //1-10之间的数
  //随机数范围
  function randomFn(start,end){
