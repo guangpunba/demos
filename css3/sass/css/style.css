@@ -1,0 +1,12 @@
+.content {
+  width: 100px;
+  height: 100px;
+  background: #f00;
+  border: 10px solid #f90; }
+
+a {
+  color: #f90; }
+  a:hover {
+    color: #00f; }
+
+/*# sourceMappingURL=style.css.map */

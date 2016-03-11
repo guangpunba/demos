@@ -1,0 +1,11 @@
+$width:100px;
+$red : #f00;
+
+
+
+$linkColor: #08c #f00 !default;
+$linkColor: #f90 #00f;
+
+@mixin border($w:10px){
+    border:$w solid #f90;
+}

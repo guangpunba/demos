@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>变形与动画</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .box{width:500px;height: 500px;border:1px solid #333;}
+        .box img{position: absolute; top: 100px;left:100px;}
+        .a{width:100px;height: 100px;background: #f00;}
+        .p{position: relative; border:1px solid #f00;}
+       
+        .main{position: relative;width:200px;height: 200px;border:1px solid #333;}
+        .content{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right:10px;
+            bottom:20px;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="p">
+        <img src="images/jianshixt_20.png" alt="">
+    </div>
+   
+    <div class="a"></div>
+</div>
+
+<div class="main">
+    <div class="content"></div>
+</div>
+
+</body>
+</html>

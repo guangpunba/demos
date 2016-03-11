@@ -109,13 +109,13 @@
         
         draw(img,clippingRegion);
     }
-    
+    //裁剪
     function setClippingRegion(clippingRegion){
         context.beginPath();
         context.arc(clippingRegion.x,clippingRegion.y,clippingRegion.r,0,Math.PI*2,false);
-        context.clip();
+        //context.clip();
     }
-    
+    //载入图片
     function draw(img,clippingRegion){
         context.clearRect(0,0,canvasWidth,canvasHeight);
         context.save();
@@ -160,6 +160,7 @@
         draw(img,clippingRegion);
     }
     
+  
 </script>
 
 </body>

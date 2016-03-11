@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="keywords" content="留学"/>
+    <meta name="description" content="芝士大学"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <title>活动详情</title>
+  
+</head> 
+    
+<body>
+    
+    <div class="content">
+        [{name:'dddd',data:[1,1,1,]},{name:'dddd',data:[1,1,1,]}]
+    </div>
+    <a href="">链接</a>
+    <script>
+        var arr = [
+            {
+              "title":"检测任务情况1","type":2,"datas":[{"count":1,"date":"2016-03-09"},{"count":11,"date":"2016-03-08"},{"count":111,"date":"2016-03-03"}]
+            },
+            {
+              "title":"检测任务情况2","type":2,"datas":[{"count":1,"date":"2016-03-09"},{"count":1,"date":"2016-03-08"},{"count":1,"date":"2016-03-03"}]
+            }
+          ];
+
+       /* var result = [];
+        for(var i=0;i<arr.length;i++){
+            
+            result[i] = {
+                name : arr[i].title,
+                data : []
+            }
+            for(var j=0;j<arr[i].datas.length;j++){
+                result[i].data.push(arr[i].datas[j].count);
+            }
+        }*/
+        
+        var result =arr.map(function(element){
+            var datas=element.datas.map(function(element){
+                return element.count;
+            });
+
+            return {
+                name:element.title,
+                data:datas
+            }
+           
+        });
+
+        console.log(result)
+    </script>
+</body>
+</html>
