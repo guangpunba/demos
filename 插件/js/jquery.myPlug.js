@@ -1,6 +1,14 @@
 ;(function($){
     $.fn.drag = function(options){
         var obj = options;
+        /*var default = {
+			//以下为该插件的属性及其默认值
+			cpBy: "dafi", //版权所有者
+			url: "http://www.qiandabao.com", //所有者链接
+			size: "12px", //版权文字大小
+			align: "left" //版权文字位置，left || center || right
+		};
+		var obj = $.extend(default,options);*/
         this.mousedown(function(e){
 
             var oPanel = eval("$('#" + obj.panel + "')"); //获取面板对象
@@ -33,7 +41,13 @@
             oPanel.css({'left':l ,'top':t })  //设置面板css 中 left和top值；
         }
     }
-    modal = function(msg){
+    modal = function(options){
+        
+        if(typeof options === 'string'){
+            var msg = options;
+        }else{
+            var msg = options.a;
+        }
         var mark = '<div class="my-mark"></div>';
         var modalBox = '<div class="my-modal"><div class="my-modal-title">提示框<a href="javascript: void(0)" class="fa fa-close"></a></div><div class="my-modal-content">'+msg+'</div></div>';
         var o = {

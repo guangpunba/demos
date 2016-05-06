@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="description" content="芝士大学"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <style>
+        body{overflow: hidden;}
+    </style>
+</head>
+<body>
+
+<a href="#" id='choose_btn'>按钮</a>
+<div id="content">
+    <div class="main">
+        <p>12</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>
+        <p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>000001</p>
+
+    </div>
+</div>
+<script src="js/zepto.js"></script>
+<script src="js/layer/layer.m.js"></script>
+<script type="text/javascript">
+   
+     $(document).on('tap','#choose_btn',function(){
+         /*layer.open({
+                content: '最多可以选择5所学校',
+                style: 'background-color:#666; color:#fff; border:none;',
+                time: 2
+            });*/
+         var html = $('#content').html();
+         var pageii = layer.open({
+            type: 1,
+            content: html,
+            style: 'position:fixed; left:0; top:0; width:100%; height:100%; border:none;overflow-y:auto;background:#f00;opacity:0.5;'
+         });
+     })
+     
+     
+</script>
+</body>
+</html>

@@ -103,7 +103,7 @@
                             function moveHander(e) {
                                     e.preventDefault();
                                     offX = e.touches[0].pageX - posX;
-
+                                    console.log(posX)
                                     var prev=self.myIndex -1,
                                              next=prev+3;
                                     for (var i = 0; i < next; i++) {
@@ -114,7 +114,8 @@
                                     };
                             }
 
-                            function endHander(){
+                            function endHander(e){
+                                  
                                     var endTime=new Date() *1,
                                              cW=self.winW/6;
                                     if (endTime - startTime > 300) {

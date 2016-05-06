@@ -9,7 +9,7 @@
 	<style>
 		*{margin:0;padding:0;}
         #main{
-           
+            
             margin: 0 auto;
             overflow: hidden;
             position: relative;
@@ -113,7 +113,7 @@
     function setClippingRegion(clippingRegion){
         context.beginPath();
         context.arc(clippingRegion.x,clippingRegion.y,clippingRegion.r,0,Math.PI*2,false);
-        //context.clip();
+        context.clip();
     }
     //载入图片
     function draw(img,clippingRegion){
@@ -142,8 +142,8 @@
     }
     
     function show(){
-        clippingRegion.x = 250;
-        clippingRegion.y = 250;
+        clippingRegion.x = canvasWidth/2;
+        clippingRegion.y = canvasHeight/2;
         //clippingRegion.r = 500;
         timer = setInterval(aa,100)
         
@@ -154,7 +154,7 @@
         console.log(radius)
         radius +=50;
         clippingRegion.r = radius;
-        if(radius > 500){
+        if(radius > canvasWidth/2+100){
             clearInterval(timer);
         }
         draw(img,clippingRegion);

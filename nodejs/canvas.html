@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas</title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{margin:0;padding:0;}
+	</style>
+</head>
+<body>
+<div id="main">1</div>
+
+<script>
+    //var main = document.getElementById('main');
+    var obj = document.getElementsByTagName('body')[0];
+    var cvs = document.createElement('canvas');
+    cvs.id = 'box';
+    obj.appendChild(cvs);
+   var imgobj = new Image();
+
+
+    imgobj.onload = function(){
+            var cvs1 = document.getElementById('box');
+            var d = cvs1.getContext('2d');
+            cvs1.width = 500;
+            cvs1.height = 500;
+            cvs1.style.background = '#cccccc';
+            d.width = 50;
+            d.height = 50;
+            d.drawImage(this,10,10);
+            //main.innerHTML = "<img src='"+imgobj.src+"'>"+imgobj.width;
+    }
+
+    imgobj.src = '../demo/images/m4.jpg';
+
+    
+
+    
+    
+</script>
+<script>
+
+</script>
+</body>
+</html>

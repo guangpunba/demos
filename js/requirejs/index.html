@@ -14,12 +14,50 @@
     <![endif]-->
 
     <style>
-
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .a{
+            
+            margin: 0 auto;
+            min-width: 1200px;
+            background: #f00;
+        }
+        .b{
+            width:1000px;
+            margin: 0 auto;
+            background: #333;
+            height: 1000px;
+        }
+        .c{
+            width:1200px;
+            background: #333;
+            height: 1000px;
+            margin: 0 auto;
+        }
+        .d{
+            width:1000px;
+            background: #f4f4f4;
+            height: 200px;
+            margin: 0 auto;
+        }
+        .line{
+            height: 2px;
+            min-width: 1200px;
+            background: #f00;
+        }
     </style>
 </head>
 
 <body>
 <div id="main">点我</div>
+<!--<div class="a">123</div>
+<div class="b"></div>-->
+<div class="line"></div>
+<div class="c">
+    <div class="d"></div>
+</div>
 
 <script data-main="js/main" src="js/libs/require.js" ></script>
 

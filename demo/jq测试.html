@@ -9,6 +9,8 @@
         #main{width:100px;height: 100px;border:1px solid #333;border-radius:50%; position: absolute; top: 0;}
         #box{width:100px;height: 100px;border:1px solid #f00;border-radius:50%; position: absolute; left:100px; top: 0;}
 	</style>
+	<script src="//cdn.bootcss.com/jquery/1.10.2/jquery.js"></script>
+    <script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 </head>
 <body>
 <select name="" id="list"></select>
@@ -19,9 +21,11 @@
 <p style='background:#f00'>123<span>222</span></p>
 
 <section><span>123</span></section>
-
-<script src="//cdn.bootcss.com/jquery/1.10.2/jquery.js"></script>
+    
+<input type="text" id="a">
+<input type="text" id="b">
 <script type="text/javascript">
+     $(window).unload( function () { alert("Bye now!"); } );
     var json = {
         "2211":"内容1",
         "2212":"内容2",
@@ -43,7 +47,7 @@
      
     
      var g = $.map([1,2,4,3],function(n){
-         return n == 1 ? n + 1 : null;
+         return n == 3 ? n + 1 : null;
         // return n+1;
         
      })
@@ -63,7 +67,10 @@
          
          $('#main').finish();
      })*/
- 
+                          
+     $('#a').on('blur',function(){
+    $('#b').focus();
+})
 
 </script>
 </body>

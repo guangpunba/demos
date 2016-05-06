@@ -3,13 +3,36 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="pie/pie.css">
     
+
+    
+    <script src="pie/PIE_IE678.js"></script>
+   
+    <style>
+        .box{
+           background: #333;
+           height: 100px;  
+           width: 100px;  
+           border: 1px solid #999;  
+           -webkit-border-radius: 50%;  
+           -moz-border-radius: 50%;  
+           border-radius: 50%;  
+           behavior: url(pie/PIE.htc);  
+        }
+    </style>
 </head>
 <body>
 
 <div class="box"></div>
-<script src="pie/selectivizr.js"></script>
+
+
+
+<script>
+        window.location.hash="no-back";
+        window.location.hash="Again-No-back-button";//again because google chrome don't insert first hash into history
+        window.onhashchange=function(){window.location.hash="no-back";}
+
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>鼠标</title>
+</head>
+<style type="text/css">
+        *{margin: 0;padding: 0;list-style: none;font-family: 'Microsoft Yahei'}
+        
+    #box{display: none;}
+</style>
+<body>
+<div  id="box">123</div>
+
+
+
+
+<a href="#">按钮</a>
+
+
+<script src="js/jquery.1.10.2.js"></script>
+<script type="text/javascript">
+    var box = $('#box');
+    
+
+    $('a').on('click',function(){
+       /* if(box.is(':hidden')){
+            
+            box.show();
+            console.log(111)
+        }else{
+            
+            box.hide();
+            console.log(222)
+        }*/
+        
+        if(box.is(':visible')){　　//如果node是显示的则隐藏node元素，否则显示
+
+          box.hide();
+
+        }else{
+
+          box.show();
+
+        }
+    })
+</script>
+</body>
+
+</html>

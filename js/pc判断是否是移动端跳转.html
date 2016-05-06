@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>模态框</title>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/layout.css"/>
+    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
+    <style>
+
+        .main{
+            width:100px;
+            height: 100px;
+            background: #f00;
+            background: 333/;
+         
+            @media \0screen{
+                    .main {background:#333}
+            }
+        }
+        *+html .main { background: #f90; }/* IE7 浏览器实行这句定义*/ 
+        * html .main { background: #ccc; }/* IE7 浏览器实行这句定义*/ 
+    </style>
+</head>
+<body>
+
+<div class="main"></div>
+<script>
+    
+function mobile_device_detect(url){
+    var thisOS=navigator.platform;
+    var os=new Array("iPhone","iPod","iPad","android","Nokia","SymbianOS","Symbian","Windows Phone","Phone","Linux armv71","MAUI","UNTRUSTED/1.0","Windows CE","BlackBerry","IEMobile");
+    for(var i=0;i<os.length;i++){
+        if(thisOS.match(os[i])){
+            window.location=url;
+        }
+    }
+    if(navigator.platform.indexOf('iPad') != -1){
+        window.location=url;
+    }
+    var check = navigator.appVersion;
+    if( check.match(/linux/i) ){
+
+        if(check.match(/mobile/i) || check.match(/X11/i)){
+            window.location=url;
+        }
+    }
+    Array.prototype.in_array = function(e){
+        for(i=0;i<this.length;i++){
+            if(this[i] == e)
+            return true;
+        }
+        return false;
+    }
+}
+mobile_device_detect('/Wap');
+
+var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");  
+      hm.src = "//hm.baidu.com/hm.js?85a1c4748806219fc31e01656993924f";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })()    
+</script>
+</body>
+</html>
