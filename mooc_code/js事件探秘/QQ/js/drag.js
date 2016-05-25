@@ -72,6 +72,7 @@ function fnDown(event){
       // 光标按下时光标和面板之间的距离
       disX=event.clientX-oDrag.offsetLeft,
       disY=event.clientY-oDrag.offsetTop;
+        console.log(event.pageX)
   // 移动
   document.onmousemove=function(event){
   	event = event || window.event;

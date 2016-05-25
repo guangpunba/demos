@@ -2,15 +2,61 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title></title>
-</head>
+    <style>
+        *{margin: 0;padding: 0;}
+        .box{width:600px; height: 600px; background: #ccc;display: -webkit-flex; display: flex;}
+        span{width:150px;height: 50px; background: #333;}
+        .box span:first-child{align-self: flex-start;}
+        .box span:last-child{align-self: flex-end;}
+        tr:nth-child(1) .hot{
+            background: #f00;
+        }
+        tr:nth-child(2) .hot{
+            background: #f00;
+        }
+        tr:nth-child(3) .hot{
+            background: #f00;
+        }
+        tr:nth-child(4) .hot{
+            background: #f90;
+        }
+    </style>
+</head
 <body>
 
-
-<script>
-    window.onunload = function(){
-        alert(13)
+<table>
+    
+    <tr>
+        <td><idv class="hot">1</idv></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><idv class="hot">2</idv></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><idv class="hot">3</idv></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><idv class="hot">4</idv></td>
+        <td></td>
+    </tr>
+</table>
+<!--    <script>
+        var a= 1;
+    function b(){
+       
+        console.log(a)
+        var   a= 2;
     }
-</script>
+    b()
+    </script>-->
+    <script>
+        var t = new Date('1461733693000');
+        console.log(t)
+    </script>
 </body>
 </html>

@@ -6,22 +6,22 @@
     <title></title>
     <style>
         *{margin:0;padding:0;}
-      
+        [v-cloak]{opacity: 0;}
        
 	</style>
 </head>
 <body>
-<div id="box">
+<div id="box" v-cloak>
     {{ message }}
 </div>
 
 <div id="app">
-  <p>{{ message }}</p>
+  <p  v-cloak>{{ message }}</p>
   <input v-model="message">
 </div>
 
 <div id="list">
-  <ul>
+  <ul v-cloak>
     <li v-for="todo in todos">
       {{ todo.text }}
       <span> {{todo.name}}</span>
