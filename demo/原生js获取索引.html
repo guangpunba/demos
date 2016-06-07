@@ -25,13 +25,13 @@
     
     
     for (var i = 0; i < elements.length; i++) {
+    
       (function () {                                                        //用匿名函数构成一个闭包
             var j = i;                                                        //将i的值保存到闭包的变量j中        
             elements[i].onclick = function () {
                 console.log(j)
             }
       })();    
-      
        /* elements[i].index = i;
         elements[i].name = i+1;
         elements[i].onclick = function(){

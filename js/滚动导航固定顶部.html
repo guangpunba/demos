@@ -33,10 +33,10 @@
 					
 				}
 				function fn(){
-					var top = document.documentElement.scrollTop;
+					var top = document.documentElement.scrollTop || document.body.scrollTop;
                     console.log(top);
 					if(top > t){
-
+                    
 						b.style.position = 'fixed';
 						b.style.top = 0;
 						

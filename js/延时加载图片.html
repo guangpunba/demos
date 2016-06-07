@@ -7,6 +7,7 @@
         *{margin:0; padding:0;}
         .box{width:800px; margin:0 auto; background: #ededed; overflow: hidden;}
         li{position:relative;list-style: none; float: left; width:198px; height: 200px; border:1px solid #fff;  }
+       
         li img.loading{ position: absolute;top:50%; left: 50%; margin:-33px 0 0 -33px }
         li img.pic{ position:absolute; top:0;left: 0; right: 0; bottom:0; margin:auto; height: auto; width:100%; }
     </style>
@@ -69,7 +70,7 @@
                 var imgSrc = obj.url;
                 $(obj).attr('src',imgSrc).removeClass('loading').addClass('pic');
                 obj.flag = true;
-            },1000)
+            },500)
         }
     }
     $(function(){

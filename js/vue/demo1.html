@@ -7,15 +7,17 @@
     <style>
         *{margin:0;padding:0;}
         [v-cloak]{opacity: 0;}
-       
+     
 	</style>
 </head>
 <body>
-<div id="box" v-cloak>
+<div>
+<template  id="box">
     {{ message }}
+    {{list}}
+</template>
 </div>
-
-<div id="app">
+<!--<div id="app">
   <p  v-cloak>{{ message }}</p>
   <input v-model="message">
 </div>
@@ -27,15 +29,17 @@
       <span> {{todo.name}}</span>
       </li>
   </ul>
-</div>
+</div>-->
 
 <script src='dist/vue.js'></script>
 <script type="text/javascript">
+    var data ={
+        message: 'Hello1 Vue.js!',
+          list:'123'
+      }
     new Vue({
       el: '#box',
-      data: {
-        message: 'Hello Vue.js!'
-      }
+      data: data
     })
     
     new Vue({

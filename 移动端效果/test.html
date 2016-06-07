@@ -11,7 +11,7 @@
 
     <script src="js/zepto_touch.js"></script>
     <style>
-        <style>
+       
         *{margin:0;padding:0;}
         .container{display: -webkit-flex;display:flex; border:1px solid #333;}
         .container .flex{height: 100px;background:#f00; margin:0 10px;}
@@ -42,11 +42,10 @@
             text-align: center;
             background: #f4f4f4;
         }
-        header{width:100%;height: 100px;background: #ccc;}
-        .content{
-            width:100%;background: #333;height: 100px;
-        }
-    </style>
+        header{width:100%;height: 50px;background: #ccc;position: fixed;top: 0;left: 0;}
+        .box{margin-top: 100px;}
+        .content{height: 1000px;background: #f4f4f4;margin-top: 50px;overflow: hidden;}
+
     </style>
 </head>
 
@@ -64,11 +63,21 @@
     
 </div>-->
 
-<header></header>
-<div class="content"></div>
-<footer></footer>
+<!--<header></header>
+<div class="content"><div class="box">1</div></div>
+<footer></footer>-->
 <script>
    
+  $(window).scroll(function(){
+       var t = $(this).scrollTop();
+       var tt = $('.box').offset().top;
+      
+       $('header').html(tt)
+   })
+/*   $(window).on('touchmove',function(){
+       var t = $(this).scrollTop();
+       $('header').html(t)
+   })*/
 </script>
 </body>
 </html>
