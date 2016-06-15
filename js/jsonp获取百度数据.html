@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度搜索框（智能提示搜索框）</title>
+	<style>
+		html{color:#333;background:#fff;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+		article,aside,blockquote,body,button,code,dd,details,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,input,legend,li,menu,nav,ol,p,pre,section,td,textarea,th,ul{margin:0;padding:0}
+		article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+		audio,canvas,video{display:inline-block}
+		body,button,input,select,textarea{font:12px/1.5 "Microsoft Yahei","\5B8B\4F53",sans-serif,tahoma,arial}
+		input,select,textarea{font-size:100%}
+		table{border-collapse:collapse;border-spacing:0}
+		th{text-align:inherit}
+		fieldset,img{border:0}
+		iframe{display:block}
+		abbr,acronym{border:0;font-variant:normal}
+		del{text-decoration:line-through}
+		address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}
+		ol,ul{list-style:none}
+		caption,th{text-align:left}
+		h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}
+		q:after,q:before{content:''}
+		sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+		sup{top:-.5em}
+		sub{bottom:-.25em}
+		a{color:#333}
+		a:hover{color:#000;text-decoration:underline}
+		a,ins{text-decoration:none}
+		.fn-clear:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}
+		.fn-clear{zoom:1}
+		.fn-hide{display:none}
+		.fn-left,.fn-right{display:inline}
+		.fn-left{float:left}
+		.fn-right{float:right}
+		.s_form {width: 641px; height: 100%; min-height: 293px; margin: 0 auto 0 auto;  text-align: left;  z-index: 100}
+		.s-down .s_form { padding-left: 0; margin-top: 0; min-height: 0}
+		.s_form_wrapper { height: 100%}
+		#kw { width: 521px; height: 20px; padding: 9px 7px; font: 16px arial; border: 1px solid #b8b8b8; border-bottom: 1px solid #ccc; border-right: 0; vertical-align: top;outline: none; box-shadow: none}
+		.btn { color: white;background-color: #38f; width: 102px; height: 40px; font-size: 16px; border: 0}
+		#kw { margin: 0}
+		#s_lg_img{display: block; margin:0 auto;}
+		#inputList{position: absolute; background: #fff; border:1px solid #ccc; width: 535px;}
+		#inputList li{margin:5px; line-height: 30px; font-size: 14px;}
+	</style>
+</head>
+<body>
+	<div id="s_fm" class="s_form"> 
+		<div class="s_form_wrapper soutu-env-nomac soutu-env-newindex" id="s_form_wrapper">
+			<div id="lg" class="s-p-top">
+				<img id="s_lg_img" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png" width="270" height="129">  
+			</div>
+			<div id="input">
+				<form id="form" class="fm" >
+					<span id="s_kw_wrap" class="fn-left bg s_ipt_wr quickdelete-wrap">
+						<input type="text" class="s_ipt" id="kw" maxlength="100" autocomplete="off">
+					</span>
+					<span class="fn-leftbtn_wr s_btn_wr bg" id="s_btn_wr">
+						<input type="button" value="百度一下" id="su" class="btn self-btn bg s_btn">
+					</span>
+				</form>
+				<ul id="inputList" style="display:none"></ul>
+			</div>
+		</div> 
+	</div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+	$(function(){
+       var _html="";
+        var t ;
+        window.baidu = {};
+       window.baidu.sug = function(data){
+				var x = JSON.stringify(data);
+                console.log(x)
+				var x=eval ("(" + x + ")");
+				var abc = x.s;
+				for(var i=0; i<abc.length; i++){
+					_html+="<li>"+abc[i]+"</li>";
+				}
+				$("#inputList").html(_html);
+				if(t.val() == ""){
+					$("#inputList").hide();
+				}else{
+					$("#inputList").show().css({
+						left:$("#kw").offset().left,
+						top:$("#kw").offset().top+40
+					})
+				}
+				if($("#inputList").html() == ""){
+					$("#inputList").hide();
+				}
+			};
+		$("#kw").bind("keyup click",function(){
+			t=$(this);
+			
+			
+			$.ajax({
+				async:false,
+				url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+t.val(),
+				dataType:'jsonp',
+				jsonp:"mycallback",
+				jsonpCallback:"window.baidu.sug"
+			});
+		})
+
+        
+		$(document).delegate("#inputList li","click",function(){
+			var key = $(this).text();
+			location.href = "https://www.baidu.com/s?wd="+key;
+		})
+
+		$(document).delegate("#su","click",function(){
+			var key = $("#kw").val();
+			location.href = "https://www.baidu.com/s?wd="+key;
+		})
+
+		$(document).click(function(){
+			$("#inputList").hide();
+		})
+	});
+
+</script>
+</html>
