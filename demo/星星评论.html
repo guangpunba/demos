@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/jquery-1.8.3.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <style>
+      *{margin: 0;padding: 0;}
+      body{font-size: 14px;}
+      
+      p{margin: 100px;  font-size: 30px;}
+      span{color: #ccc; cursor: pointer;float: left; margin-right:10px;}
+    </style>
+</head>
+<body>
+    <p>
+        <span class='fa fa-star'></span>
+        <span class='fa fa-star'></span>
+        <span class='fa fa-star'></span>
+        <span class='fa fa-star'></span>
+        <span class='fa fa-star'></span>
+    </p>
+    <div class="box"></div>
+  <script>
+      var n = 0;
+      $('p').on('click','span',function(e){
+         // var l = $(this).offset().left;
+          
+          var i = $(this).index();
+          var p = parseInt($('p').offset().left);
+          var x = parseInt(e.clientX);
+          var starW = $(this).width();
+          p = p + starW*i+10*i;
+            var j = x-p;
+    
+          if(j > starW/2){
+              if($(this).hasClass('full')){
+                  
+                  $(this).removeClass('fa-star-half-full').addClass('fa-star')
+                  $('p').find("span:gt("+i+")").css('color','#ccc').removeClass('full fa-star-half-full').addClass('fa-star')
+                  
+                 //$(this).removeClass('on');
+              }else{
+                  $('p').find("span:lt("+(i+1)+")").css('color','red').removeClass('fa-star-half-full').addClass('full fa-star')
+                  
+            
+              }
+              
+              n = (i+1)*2;
+         
+              
+             
+              
+          }else{
+              if($(this).hasClass('full')){
+                  $(this).addClass('fa-star-half-full').removeClass('fa-star').css('color','red');
+                  $('p').find("span:gt("+i+")").css('color','#ccc').removeClass('full fa-star-half-full').addClass('fa-star')
+              }else{
+                  $('p').find("span:lt("+(i+1)+")").css('color','red').removeClass('fa-star-half-full').addClass('full fa-star');
+                  $(this).addClass('fa-star-half-full');
+                  
+                 
+              }
+              n = (i+1)*2-1;
+            
+          }
+          $('.box').text(n)
+          
+      })
+      
+    
+</script>
+</body>
+</html>

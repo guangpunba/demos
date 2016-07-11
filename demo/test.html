@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset = "utf-8" />
-    <title>test</title>
-    <style type="text/css">
-      
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
         *{margin: 0;padding: 0;}
-        button,input[type='button']{width:200px;height: 200px;border: none;padding: 0; vertical-align: top;}
-        butotn::-moz-focus-inner,input[type='button']::-moz-focus-inner{border: none;padding: 0;}
-        a{background: #f00;}
+        html,body{height: 100%;}
+        .box{height: 300px; width:1000px;margin: 0 auto; overflow: hidden;}
+        .section{
+            width:400%;
+            height: 100%;
+            transform: translateX(-1000px)
+        }
+        section{height: 100%;background-size: cover; background-position: no-repeat; width:25%; float: left;}
+        .a{background-image: url(images/m1.jpg);}
+        .b{background-image: url(images/m2.jpg);}
+        .c{background-image: url(images/m3.jpg);}
+        .d{background-image: url(images/m4.jpg);}
     </style>
-    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-    
 </head>
 <body>
-<a href="">12999883</a>
-<a href="">234</a>
-<script type="text/javascript">
+    <div class="box">
+        <div class="section">
+            <section class="a"></section>
+            <section class="b"></section>
+            <section class="c"></section>
+            <section class="d"></section>
+        </div>
+        
+    </div>
+</body>
+<script>
 
 </script>
-</body>
 </html>
